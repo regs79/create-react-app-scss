@@ -18,19 +18,11 @@ class Home extends React.Component {
   }
 
   render() {
-
-    const { userInfo, hello } = this.props
+    // const { userInfo, hello } = this.props
     return (
-      <div>
-        <Container>
-          <Box>
-            <h1>Hello, {userInfo.username}</h1>
-            <p>Click <Link to="/about">here</Link> to see me</p>
-            {(hello) && <p>{hello}</p>}
-            <Button color="primary" onClick={this.handleSayHello}>Say Hello</Button>
-          </Box>
-        </Container>
-      </div>
+       <div>
+         Home
+       </div>
     );
   }
 

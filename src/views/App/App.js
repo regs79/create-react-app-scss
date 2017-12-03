@@ -3,21 +3,16 @@ import PropTypes from 'prop-types'
 
 class App extends React.Component {
 
+  constructor(props) {
+    super(props)
+  }
+
   componentWillMount() {
     console.log(this.props)
-    this.props.getUserAccess()
   }
 
   render() {
-    const { isAuthenticated, children } = this.props
-
-    if(!isAuthenticated) {
-      return (
-        <div>
-          <h1>Accessing..</h1>
-        </div>
-      )
-    }
+    const { children } = this.props
 
     return (
       <div>

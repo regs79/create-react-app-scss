@@ -192,7 +192,7 @@ module.exports = {
             ],
           },
           {
-            test: /\.(scss|sass)$/,
+            test: /\.(sass|scss)$/,
             use: [
               require.resolve('style-loader'),
               {
@@ -216,7 +216,7 @@ module.exports = {
             exclude: /(src)/,
           },
           {
-            test: /\.(scss|sass)$/,
+            test: /\.(sass|scss)$/,
             use: [
               require.resolve('style-loader'),
               {

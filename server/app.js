@@ -44,7 +44,7 @@ app.use('/api', middlewares.authentication, routes);
 
 // start server
 app.listen(PORT, () => {
-  console.info(`App is listening on ${process.env.HOST}:${PORT} in ${process.env.NODE_ENV} mode`);
+  console.info(`App is listening on localhost:${PORT} in ${process.env.NODE_ENV} mode`);
 });
 
 export default app;
