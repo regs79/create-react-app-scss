@@ -1,0 +1,31 @@
+@import "../../styles/config/index";
+
+.menu {
+  position: relative;
+  border-bottom: 1px solid #EAEAEA;
+  border-top: 1px solid #EAEAEA;
+
+  li {
+
+    &:first-child {
+      border-left: 1px solid #EAEAEA;
+    }
+  }
+
+  a.item {
+    font-family: 'Thonburi';
+    font-weight: 400;
+    letter-spacing: .2px;
+    text-decoration: none;
+    padding: 10px 30px 10px 30px;
+    display: block;
+    border-right: 1px solid #EAEAEA;
+    color: $font-basecolor;
+
+    &.active {
+      background-color: $brand-primary-color;
+      color: white;
+      margin: -1px;
+    }
+  }
+}

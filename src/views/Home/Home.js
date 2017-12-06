@@ -2,9 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Container, Button } from 'reactstrap'
 import { Switch, Route, Link } from 'react-router-dom'
-
-import Box from 'components/Box'
-import About from 'containers/About'
+import cn from 'classnames'
+import Card from 'components/Card'
+import Hero from 'components/Hero'
+import Menu from 'components/Menu'
+import styles from './Home.scss'
 
 class Home extends React.Component {
 
@@ -21,7 +23,23 @@ class Home extends React.Component {
     // const { userInfo, hello } = this.props
     return (
        <div>
-         Home
+         <Hero />
+         <Menu />
+         <div className={cn('container', styles.homeBody)}>
+           <div className={styles.articles}>
+             <div className="row clear">
+               <div className="col-12 col-4-l no-padding-right">
+                 <Card />
+               </div>
+               <div className="col-12 col-4-l no-padding-right">
+                 <Card />
+               </div>
+               <div className="col-12 col-4-l no-padding-right">
+                 <Card />
+               </div>
+             </div>
+           </div>
+         </div>
        </div>
     );
   }

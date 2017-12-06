@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import Header from 'components/Header'
 
 class App extends React.Component {
 
@@ -16,6 +17,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <Header />
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
             return React.cloneElement(child)

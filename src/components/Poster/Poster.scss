@@ -1,0 +1,43 @@
+@import "../../styles/config/index";
+
+.poster {
+  display: block;
+
+  .thumb {
+    display: inline-block;
+
+    .img {
+      display: block;
+    }
+  }
+
+  .user {
+    display: inline-block;
+    position: relative;
+    bottom: 0px;
+    left: 5px;
+    top: -6px;
+
+    .name {
+      display: block;
+      a {
+        font-size: 80%;
+        color: $font-subcolor;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+        display: inline-block;
+        line-height: 12px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .time {
+      display: block;
+      font-size: 70%;
+      line-height: 10px;
+      color: grey;
+    }
+  }
+}

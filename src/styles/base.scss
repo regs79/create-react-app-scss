@@ -1,2 +1,24 @@
 @import "config/index";
-@import "flavors/default";
+
+@import "base/_variables";
+@import "common";
+@import "base/_mixins";
+@import "base/_resets";
+
+@import "base/_typography";
+@import "base/_lists";
+@import "base/_blockquotes";
+@import "base/_tables";
+@import "base/_code";
+@import "base/_forms";
+@import "base/_buttons";
+
+@import "base/_grid";
+@import "base/_animations";
+
+@media print {
+  @import "base/_print";
+}
+
+// Import Base Helpers
+@import "base/_helpers";
