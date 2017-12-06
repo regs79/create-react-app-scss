@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
-import styles from './Menu.scss'
 import { NavLink } from 'react-router-dom'
+import WindowEvent from 'components/WindowEvent'
+
+import styles from './Menu.scss'
 
 const menuMockup = [
   {
@@ -39,9 +41,9 @@ const menuMockup = [
   },
 ]
 
-export const Menu = ({ children }) => {
+export const Menu = ({ children, scrollTop }) => {
   return (
-    <div className={styles.menu}>
+    <div className={cn(styles.menu, { [styles.fixed]: scrollTop > 60 } )}>
       <div className="container">
         <ul className="list-unstyled">
           {menuMockup.map(({ title, active, path }, key) => (
@@ -61,4 +63,4 @@ Menu.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Menu
+export default WindowEvent(Menu)

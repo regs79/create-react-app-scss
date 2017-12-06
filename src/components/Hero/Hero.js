@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import styles from './Hero.scss'
 
 export const Hero = ({ children }) => {

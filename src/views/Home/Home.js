@@ -23,11 +23,22 @@ class Home extends React.Component {
     // const { userInfo, hello } = this.props
     return (
        <div>
-         <Hero />
          <Menu />
          <div className={cn('container', styles.homeBody)}>
            <div className={styles.articles}>
              <div className="row clear">
+               <div className="col-12 col-6-l no-padding-right">
+                 <Card />
+               </div>
+               <div className="col-12 col-6-l no-padding-right">
+                 <Card />
+               </div>
+               <div className="col-12 col-6-l no-padding-right">
+                 <Card />
+               </div>
+               <div className="col-12 col-6-l no-padding-right">
+                 <Card />
+               </div>
                <div className="col-12 col-6-l no-padding-right">
                  <Card />
                </div>
