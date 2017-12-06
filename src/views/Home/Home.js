@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Container, Button } from 'reactstrap'
 import { Switch, Route, Link } from 'react-router-dom'
+import WindowEvent from 'components/WindowEvent'
 import cn from 'classnames'
 import Card from 'components/Card'
 import Hero from 'components/Hero'
@@ -20,11 +21,11 @@ class Home extends React.Component {
   }
 
   render() {
-    // const { userInfo, hello } = this.props
+    const { scrollTop } = this.props
     return (
        <div>
          <Menu />
-         <div className={cn('container', styles.homeBody)}>
+         <div className={cn('container', styles.homeBody, { [styles.fixed]: scrollTop > 60 })}>
            <div className={styles.articles}>
              <div className="row clear">
                <div className="col-12 col-6-l no-padding-right">
@@ -67,4 +68,4 @@ Home.defaultProps = {
   handleSayHello: null,
 }
 
-export default Home
+export default WindowEvent(Home)

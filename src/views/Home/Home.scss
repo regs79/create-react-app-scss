@@ -2,6 +2,10 @@
   margin: 10px auto;
   min-height: 2000px;
 
+  &.fixed {
+    margin: 60px auto;
+  }
+
   .articles {
     margin: 25px auto;
     display: block;
