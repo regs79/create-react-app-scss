@@ -28,13 +28,13 @@ class Home extends React.Component {
          <div className={cn('container', styles.homeBody)}>
            <div className={styles.articles}>
              <div className="row clear">
-               <div className="col-12 col-4-l no-padding-right">
+               <div className="col-12 col-6-l no-padding-right">
                  <Card />
                </div>
-               <div className="col-12 col-4-l no-padding-right">
+               <div className="col-12 col-6-l no-padding-right">
                  <Card />
                </div>
-               <div className="col-12 col-4-l no-padding-right">
+               <div className="col-12 col-6-l no-padding-right">
                  <Card />
                </div>
              </div>
