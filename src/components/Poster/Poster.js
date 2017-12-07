@@ -13,11 +13,11 @@ export const Poster = ({
     <div className={cn('col col-12', styles.poster, className)}>
       <div className={cn('no-padding', styles.thumb)}>
         <a href="#">
-          <img src={avatar} alt="avatar" className={cn('img-circle avatar-image--smaller', styles.img)} />
+          <img src={'https://cdn-images-1.medium.com/fit/c/40/40/1*Sho_UKshzwhVzZbKefQYvQ.jpeg'} alt="avatar" className={cn('img-circle avatar-image--smaller', styles.img)} />
         </a>
       </div>
       <div className={cn('no-padding', styles.user)}>
-        <span className={styles.name}><a href="#">{name}</a></span>
+        <span className={styles.name}><a href="#">Tawan</a></span>
         <span className={styles.time}>13 minutes ago</span>
       </div>
     </div>

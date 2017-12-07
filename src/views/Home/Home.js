@@ -28,25 +28,25 @@ class Home extends React.Component {
          <div className={cn('container', styles.homeBody, { [styles.fixed]: scrollTop > 60 })}>
            <div className={styles.articles}>
              <div className="row clear">
-               <div className="col-12 col-6-l no-padding-right">
+               <div className="col-6 col-6-l col-6-m">
                  <Card />
                </div>
-               <div className="col-12 col-6-l no-padding-right">
+               <div className="col-6 col-6-l col-6-m">
                  <Card />
                </div>
-               <div className="col-12 col-6-l no-padding-right">
+               <div className="col-6 col-6-l col-6-m">
                  <Card />
                </div>
-               <div className="col-12 col-6-l no-padding-right">
+               <div className="col-6 col-6-l col-6-m">
                  <Card />
                </div>
-               <div className="col-12 col-6-l no-padding-right">
+               <div className="col-6 col-6-l col-6-m">
                  <Card />
                </div>
-               <div className="col-12 col-6-l no-padding-right">
+               <div className="col-6 col-6-l col-6-m">
                  <Card />
                </div>
-               <div className="col-12 col-6-l no-padding-right">
+               <div className="col-6 col-6-l col-6-m">
                  <Card />
                </div>
              </div>
