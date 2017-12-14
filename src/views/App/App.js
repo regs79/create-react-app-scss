@@ -1,28 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import Header from 'components/Header'
+import HeroSegment from 'components/HeroSegment'
+import Footer from 'components/Footer'
+import MainHeader from 'components/MainHeader'
+import { isHome } from 'utils'
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props)
-  }
-
-  componentWillMount() {
-    console.log(this.props)
-  }
-
   render() {
     const { children } = this.props
-
+    const _isHome = isHome(this.props.location)
     return (
       <div>
-        <Header />
+        {(_isHome) ? <HeroSegment children={<MainHeader />}/> : <MainHeader />}
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
             return React.cloneElement(child)
           }
         })}
+        <Footer />
       </div>
     );
   }

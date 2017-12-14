@@ -3,9 +3,9 @@
 // ==========================================================================
 
 // Global Typography
-$base-background-color:                         #fafafa !default;
-$base-font-family:                              sans-serif !default;
-$base-font-size:                                16 !default;
+$base-background-color:                         #f4f4f4 !default;
+$base-font-family:                              'Thonburi' !default;
+$base-font-size:                                14 !default;
 $base-line-height:                              22 !default;
 $base-font-weight:                              400 !default;
 $base-font-color:                               #000 !default;
@@ -68,8 +68,8 @@ $grid-alignment:                                left;
 // Grid Containers
 $container:                                     100% !default;
 $container-m:                                   720px !default;
-$container-l:                                   960px !default;
-$container-xl:                                  1120px !default;
+$container-l:                                   1000px !default;
+$container-xl:                                  1224px !default;
 
 // Grid Gutters
 $grid-gutter:                                   15px !default;

@@ -5,21 +5,29 @@ import styles from './Card.scss'
 import defaultImg from 'assets/images/card-default.jpg'
 import Poster from 'components/Poster'
 
-export const Card = ({ children }) => {
+export const Card = ({ children, title, subtitle, url }) => {
   return (
-    <div className={cn('col col-12 no-padding', styles.card, styles.default)}>
-      <div className={cn('col col-5-m col-12 no-padding', styles.thumb)}>
-        <a href="#img">
-          <div className={styles.imgCover} style={{ backgroundImage: `url(${defaultImg})`}}/>
-        </a>
+    <div className="ui fluid card">
+      <div className="image">
+        <img src={url} alt="Card" />
       </div>
-      <div className={cn('col col-7-m col-12', styles.content)}>
-        <div className={styles.title}>
-          <a href="#link">จะเกิดอะไรขึ้นได้บ้างกับนักเรียนไทย ที่จะยื่นวีซ่ามาออสเตรเลียหลัง วันที่ 31 มีนาคม 2017</a>
+      <div className="content">
+        <div className="header">{title}</div>
+        <div className="meta">
+          <a>Friends</a>
         </div>
-        <div className="row clear">
-          <Poster name="Tim Tawan" className={styles.poster} />
+        <div className="description">
+          {subtitle}
         </div>
+      </div>
+      <div className="extra content">
+        <span className="right floated">
+          Joined in 2013
+        </span>
+        <span>
+          <i className="user icon"></i>
+          75 Friends
+        </span>
       </div>
     </div>
   );

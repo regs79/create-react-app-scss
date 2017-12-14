@@ -1,7 +1,6 @@
 import React from 'react'
 
 const MOBILE_SIZE = 568
-const TABLET_SIZE = 768
 const DESKTOP_SIZE = 1024
 
 export default function WindowEvent(WrapperComponent) {

@@ -19,6 +19,7 @@
     "svgo": "^0.7.2"
   },
   "dependencies": {
+    "antd": "^3.0.1",
     "autoprefixer": "7.1.2",
     "axios": "^0.16.2",
     "babel-core": "6.25.0",
@@ -103,6 +104,8 @@
     "redux-thunk": "^2.2.0",
     "sass-convert": "^0.5.2",
     "sassdoc": "^2.5.0",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.77.1",
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.5.9",
