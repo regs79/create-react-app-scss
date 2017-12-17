@@ -1,0 +1,13 @@
+@import "../../styles/config/_index";
+
+.container {
+  display: block;
+}
+
+.table {
+  td, th {
+    border-top: none;
+    border-bottom: 1px solid $lightwhite;
+    @include paddingLeft(0);
+  }
+}

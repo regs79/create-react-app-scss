@@ -10,13 +10,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return bindActionCreators({
-//   }, dispatch)
-// }
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+  }, dispatch)
+}
 
 export default withRouter(connect(
   mapStateToProps,
-  // mapDispatchToProps
-  null,
+  mapDispatchToProps
 )(App))

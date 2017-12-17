@@ -1,0 +1,26 @@
+@import "../../styles/config/_index";
+
+
+.container {
+
+}
+
+.modalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: none;
+  background: transparent;
+  overflow: auto;
+  border-radius: 0;
+  outline: none;
+  padding: 0;
+}
+
+
+.modalFluid {
+  max-width: 100%;
+  margin: 10px;
+}

@@ -1,0 +1,28 @@
+@import "../../styles/config/_index";
+
+.container {
+  display: block;
+}
+
+.btn {
+  cursor: pointer;
+  min-width: 120px;
+
+  &.primary {
+    color: white;
+    background-color: $blue;
+    border-color: $blue;
+  }
+
+  &.secondary {
+    color: $white;
+    background-color: $grey;
+    border-color: $grey;
+  }
+
+  &.default {
+    color: $black;
+    background-color: $white;
+    border-color: $grey;
+  }
+}

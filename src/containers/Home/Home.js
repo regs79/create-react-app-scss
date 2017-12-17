@@ -3,20 +3,19 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import Home from 'views/Home'
-
-// Actions
-import { sayHello } from 'actions/AppAction'
+import { refundsData } from 'fixtures/refunds'
+import { issuessData } from 'fixtures/issuess'
 
 const mapStateToProps = (state) => {
-  const { app } = state
   return {
-    hello: app.hello,
+    state,
+    issuessData,
+    refundsData,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
-    sayHello: sayHello,
   }, dispatch)
 }
 

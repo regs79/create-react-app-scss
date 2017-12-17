@@ -2,12 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types'
 
 class App extends React.Component {
-
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    dispatch: PropTypes.func.isRequired,
-  }
-
   render() {
     const { children } = this.props
     return (

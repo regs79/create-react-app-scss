@@ -1,44 +1,59 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Container, Button } from 'reactstrap'
-import { Switch, Route, Link } from 'react-router-dom'
-
-import Box from 'components/Box'
-import About from 'containers/About'
+import Modal from 'components/Modal'
+import IssueRefund from 'views/Home/components/IssueRefund'
+import Button from 'components/Button'
+import Text from 'components/Text'
 
 class Home extends React.Component {
 
-  static propTypes = {
-    hello: PropTypes.string,
-    handleSayHello: PropTypes.func,
+  constructor(props){
+  	super(props);
+  	this.state = {
+      modal: false,
+    };
+
+    this.handleOpenModal = this.handleOpenModal.bind(this)
   }
 
-  static defaultProps = {
-    hello: null,
-    handleSayHello: null,
-  }
-
-  constructor(props) {
-    super(props)
-    this.handleSayHello = this.handleSayHello.bind(this)
-  }
-
-  handleSayHello() {
-    this.props.sayHello(2)
+  handleOpenModal() {
+    this.setState((prevState) => {
+      return {
+        modal: !prevState.modal
+      }
+    })
   }
 
   render() {
-    const { hello } = this.props
+    const { refundsData, issuessData } = this.props
+    const { modal } = this.state
+    const issueRefundModalProps = {
+      fluid: true,
+      isOpen: modal,
+      name: 'Issue Refund',
+      handleCloseModal: this.handleOpenModal,
+    }
+
+    const issueRefundProps = {
+      issuessData,
+      basicTable: {
+        columnLabel: ['Transaction ID', 'Amount', 'Purchased by', 'Purchased date', 'Paid by'],
+        columnDataValue: refundsData[0],
+      }
+    }
+
     return (
       <div>
-        <Container>
-          <Box>
-            <h1>Hello, Word</h1>
-            <p>Click <Link to="/about">here</Link> to see me</p>
-            {(hello) && <p>{hello}</p>}
-            <Button color="primary" onClick={this.handleSayHello}>Say Hello</Button>
-          </Box>
-        </Container>
+        <div style={{ width: 200, margin: '50px auto' }}>
+          <Button type="primary" onClick={this.handleOpenModal}>
+            <Text span>Open Issue Refund</Text>
+          </Button>
+        </div>
+        {(modal) &&
+          <Modal {...issueRefundModalProps}>
+            <IssueRefund {...issueRefundProps} />
+          </Modal>
+        }
       </div>
     );
   }

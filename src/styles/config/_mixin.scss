@@ -1,0 +1,24 @@
+@mixin fontSize($size: 1.6, $line: $size * 1.5){
+  font-size: ($size * 10) + px;
+  line-height: ($line * 10) + px;
+  font-size: $size + rem;
+  line-height: $line + rem;
+}
+
+@mixin paddingLeft($padding) {
+  padding-left: $padding + px;
+}
+
+@mixin input-checkbox-style() {
+  opacity: 0;
+
+  &:focus + label::before {
+    outline-offset: -2px;
+  }
+
+  &:checked + label::before {
+    border-color: $checkbox-checked-border-color;
+    background-color: $checkbox-checked-background-color;
+  }
+
+}

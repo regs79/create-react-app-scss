@@ -1,0 +1,15 @@
+@import "../../styles/config/_index";
+
+.container {
+  display: block;
+}
+
+.h1 {
+  @include fontSize(1.1, 2);
+  color: $darkblue;
+}
+
+.span {
+  margin: 0px;
+  padding: 0px;
+}
