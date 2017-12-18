@@ -1,23 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import infoTablePropsType from 'propTypes/BasicTable'
 import cn from 'classnames'
 import styles from './BasicTable.scss'
 import { createTableInfoData } from 'utils/table'
 
 export const BasicTable = ({
-  columnLabel,
-  columnDataValue,
+  columns,
+  data,
 }) => {
-  const data = createTableInfoData({ column: columnLabel, row: columnDataValue})
+  const tableData = createTableInfoData({ column: columns, row: data})
   const tableClasses = cn('table', styles.table)
   const renderRows = () => {
     const rows = []
-    for (var i = 0; i < data.length; i++) {
+    for (var i = 0; i < tableData.length; i++) {
       rows.push(
         React.createElement("tr", { key: i },
-        React.createElement("th", { scope: "row" }, `${data[i].label}`),
-        React.createElement("td", {}, `${data[i].value}`)
+        React.createElement("th", { scope: "row" }, `${tableData[i].label}`),
+        React.createElement("td", {}, `${tableData[i].value}`)
       ))
     }
     return rows
@@ -28,7 +27,14 @@ export const BasicTable = ({
          React.createElement('tbody', {}, renderRows())))
 }
 
-BasicTable.propTypes = infoTablePropsType.propTypes
-BasicTable.defaultProps = infoTablePropsType.defaultProps
+BasicTable.propTypes = {
+  columns: PropTypes.arrayOf(PropTypes.string),
+  data: PropTypes.object
+}
+
+BasicTable.defaultProps = {
+  columns: [],
+  data: {},
+}
 
 export default BasicTable

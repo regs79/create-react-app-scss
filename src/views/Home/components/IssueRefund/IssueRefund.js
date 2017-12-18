@@ -135,8 +135,8 @@ class IssueRefund extends React.Component {
 
     // General information on table
     const BasicTableProps = {
-      columnLabel: basicTable.columnLabel,
-      columnDataValue: basicTable.columnDataValue,
+      columns: basicTable.columns,
+      data: basicTable.data,
     }
 
     const normalInputProps = {

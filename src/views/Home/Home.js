@@ -37,8 +37,8 @@ class Home extends React.Component {
     const issueRefundProps = {
       issuessData,
       basicTable: {
-        columnLabel: ['Transaction ID', 'Amount', 'Purchased by', 'Purchased date', 'Paid by'],
-        columnDataValue: refundsData[0],
+        columns: ['Transaction ID', 'Amount', 'Purchased by', 'Purchased date', 'Paid by'],
+        data: refundsData[0],
       }
     }
 

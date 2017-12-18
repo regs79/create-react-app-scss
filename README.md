@@ -13,3 +13,4 @@
 - ```yarn install``` Install package
 - ```yarn start``` Run in development mode
 - ```yarn build``` Build package for production
+- ```yarn run storybook``` Run React UI Live documentation
