@@ -2,15 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './IssueRefund.scss'
 import BasicTablePropsType from 'propTypes/BasicTable'
+import cn from 'classnames'
+import { REFUND_TYPES, CANCEL_TYPES } from 'constants/refunds'
+import { dropdownLists } from 'utils/dropdown'
+import findIndex from 'lodash/findIndex'
+
+// Components
 import AlertMessage from 'components/AlertMessage'
 import BasicTable from 'components/BasicTable'
 import Text from 'components/Text'
 import Checkbox from 'components/Checkbox'
 import Dropdown from 'components/Dropdown'
-import cn from 'classnames'
-import { REFUND_TYPES, CANCEL_TYPES } from 'constants/refunds'
-import { dropdownLists } from 'utils/dropdown'
-import findIndex from 'lodash/findIndex'
+import InputLight from 'components/InputLight'
 
 class IssueRefund extends React.Component {
 
@@ -184,6 +187,10 @@ class IssueRefund extends React.Component {
                 const partialInputProps = Object.assign({}, normalInputProps, {
                   id: issues.id,
                   value: 0,
+                  placeholder: '',
+                  style: {
+                    width: 70,
+                  }
                 })
 
                 const isPartialSelected = (issues.isRefunded === REFUND_TYPES.partial)
@@ -202,7 +209,7 @@ class IssueRefund extends React.Component {
                     {(!isDisabled) &&
                       <td>
                         <Dropdown {...refundAmountDropdownProps} />
-                        {(isPartialSelected) && React.createElement('input', partialInputProps) }
+                        {(isPartialSelected) && <InputLight {...partialInputProps} />}
                       </td>
                     }
                     {(!isDisabled) &&
@@ -218,10 +225,9 @@ class IssueRefund extends React.Component {
         </table>
         <div style={{ display: 'block' }}>
           <Text span>Refund reason</Text>
-          {React.createElement('input', Object.assign({}, normalInputProps, {
-            className: cn(normalInputProps.className, styles.inputDefault),
-            placeholder: 'Comment'
-          }) ) }
+          <div>
+            <InputLight placeholder="Comment" />
+          </div>
         </div>
       </div>
     );

@@ -1,0 +1,19 @@
+@import "../../styles/config/_index";
+
+.input {
+  position: relative !important;
+  width: 50%;
+}
+
+.light {
+  display: inline-block;
+  position: absolute;
+  border-bottom: 1px solid $lightwhite;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-radius: 0;
+  text-align: left;
+  padding-left: 0;
+  margin-left: 10px;
+}
