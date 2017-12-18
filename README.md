@@ -7,7 +7,6 @@
 - Redux-actions (https://github.com/reduxactions/redux-actions)
 - React-router-dom
 - SASS/SCSS Supported!
-- Reactstrap (https://reactstrap.github.io/)
 
 
 ## Demo
