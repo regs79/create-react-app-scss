@@ -235,11 +235,17 @@ class IssueRefund extends React.Component {
 }
 
 IssueRefund.propTypes = {
-  BasicTable: PropTypes.shape({ ...BasicTablePropsType.propTypes }),
+  BasicTable: PropTypes.shape({
+    columns: PropTypes.arrayOf(PropTypes.string),
+    data: PropTypes.object
+  }),
 }
 
 IssueRefund.defaultProps = {
-  BasicTable: BasicTablePropsType.defaultProps
+  BasicTable: {
+    columns: [],
+    data: {},
+  }
 }
 
 export default IssueRefund

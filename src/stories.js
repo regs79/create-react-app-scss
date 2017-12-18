@@ -6,12 +6,9 @@ import './styles/base.css'
 import './assets/css/bootstrap.css'
 
 import React from 'react';
-// import { withDocs } from 'storybook-readme';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
-import { Welcome } from '@storybook/react/demo';
 import faker from 'faker'
 // components
 import Text from 'components/Text'
