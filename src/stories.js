@@ -26,7 +26,7 @@ import { issuessData } from 'fixtures/issuess'
 import Home from 'views/Home'
 
 storiesOf('Welcome', module)
-  .add('Issue Refund Modal',
+  .add('Example Issue Refund Modal',
     withInfo(
       {
         text: 'Checkbox Component',
@@ -72,9 +72,9 @@ storiesOf('AlertMessage', module)
     text: 'AlertMessage Component',
   })(() => {
     const alertMessageProps = {
-      title: 'Please Note',
+      title: 'Note Title',
       type: 'info',
-      content: `<p>Refunds made after X days can only be made from the organisation processing the refunds account. if you want other organisations to participate in the refund, you are responsible for coordinating with those other organizations.</p><p>Refunds can only be processed against the credit card from which the original payment was made</p>`
+      content: `<p>Generated 1 paragraph, 5 words, 27 bytes of Lorem Ipsum</p><p>Lorem ipsum dolor sit amet.</p>`
     }
     return (
       <AlertMessage {...alertMessageProps} />
@@ -88,7 +88,7 @@ storiesOf('AlertMessage', module)
     const alertMessageProps = {
       title: 'Warning Title',
       type: 'warning',
-      content: `<p>Refunds made after X days can only be made from the organisation processing the refunds account. if you want other organisations to participate in the refund, you are responsible for coordinating with those other organizations.</p><p>Refunds can only be processed against the credit card from which the original payment was made</p>`
+      content: `<p>Generated 1 paragraph, 5 words, 27 bytes of Lorem Ipsum</p><p>Lorem ipsum dolor sit amet.</p>`
     }
     return (
       <AlertMessage {...alertMessageProps} />
@@ -103,13 +103,12 @@ storiesOf('BasicTable', module)
         text: 'Table Component',
       })(() => {
         const BasicTableProps = {
-          columns: ['Transaction ID', 'Amount', 'Purchased by', 'Purchased date', 'Paid by'],
+          columns: ['ID', 'First Name', 'Last Name', 'Date Of Birth'],
           data: {
             id: 92345677,
-            amount: faker.commerce.price(.10,200.00,2,"$"),
-            purchasedby: faker.name.firstName(),
-            purchaseddate: faker.date.past(10),
-            paidby: 'VISA-XXX XXX XXX 4351',
+            name: 'Tim',
+            lastname: 'Tawan',
+            dateofbirth: '12 August 1990'
           },
         }
       return (<BasicTable {...BasicTableProps} />)
@@ -193,7 +192,7 @@ storiesOf('Modal', module)
       const modalProps = {
         fluid: true,
         isOpen: true,
-        name: 'Issue Refund',
+        name: 'Modal Name',
         handleCloseModal: action('clicked'),
       }
       return (
