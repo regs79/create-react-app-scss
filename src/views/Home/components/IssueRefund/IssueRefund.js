@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './IssueRefund.scss'
-import BasicTablePropsType from 'propTypes/BasicTable'
 import cn from 'classnames'
 import { REFUND_TYPES, CANCEL_TYPES } from 'constants/refunds'
 import { dropdownLists } from 'utils/dropdown'
