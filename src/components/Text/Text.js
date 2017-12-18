@@ -13,6 +13,7 @@ export const Text = ({ children, ...rest }) => {
         return React.createElement(type, textProps, children)
       }
     }
+    return React.createElement('p', { className: cn(styles['p']) }, children)
   }
 }
 

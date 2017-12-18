@@ -18,6 +18,7 @@ import AlertMessage from 'components/AlertMessage'
 import Checkbox from 'components/Checkbox'
 import Dropdown from 'components/Dropdown'
 import InputLight from 'components/InputLight'
+import Modal from 'components/Modal'
 
 // views
 import { refundsData } from 'fixtures/refunds'
@@ -180,5 +181,25 @@ storiesOf('Input', module)
         text: 'InputLight Component',
       })(() => {
       return (<InputLight />)
+    })
+  )
+
+storiesOf('Modal', module)
+  .add('Opened Modal',
+    withInfo(
+      {
+        text: 'Modal Component',
+      })(() => {
+      const modalProps = {
+        fluid: true,
+        isOpen: true,
+        name: 'Issue Refund',
+        handleCloseModal: action('clicked'),
+      }
+      return (
+        <Modal {...modalProps}>
+          <Text>Modal Content</Text>
+        </Modal>
+      )
     })
   )
