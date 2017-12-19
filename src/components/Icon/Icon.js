@@ -1,22 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import cn from 'classnames'
 import styles from './Icon.scss'
 
-export const Icon = ({ className, icon, color, size }) => {
-
-  let stylesInline = {
-    fontSize: size,
-    color: color,
+export const Icon = (props) => {
+  const {
+    icon,
+    className,
+    size,
+  } = props
+  console.log('size', size)
+  const iconProps = {
+    style: {
+      fontSize: size,
+    },
+    className: cn(icon, styles.icon, className),
   }
-
-  return (
-    <span className={cn(icon, styles.Icon, className)} style={{...stylesInline}} />
-  );
-}
-
-Icon.propTypes = {
-
+  return React.createElement('span', iconProps)
 }
 
 export default Icon

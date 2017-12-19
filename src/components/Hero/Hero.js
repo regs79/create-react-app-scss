@@ -2,39 +2,49 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 import styles from './Hero.scss'
-import { Grid, Button } from 'semantic-ui-react'
-import { firstLetterUppercase } from 'utils'
+import Button from 'components/Button'
+import heroImage from 'assets/images/mel11.jpg'
 
-export const Hero = ({ headline, title }) => {
-  const pageName = firstLetterUppercase(headline)
+class Hero extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <div className={styles.container}>
-      <div className={cn('container-l', styles.hero)}>
-        <div className="ui stackable two column grid">
-          <div className="column">
-            <h1 className={styles.h1}>{pageName}</h1>
-            <h1 className={styles.subh1}>Victoria</h1>
-          </div>
-          <div className="column">
-            <Button primary size='huge' floated='right'>
-              <span>{title}</span>
-            </Button>
+  render() {
+    return (
+      <div className={styles.container}>
+        <div className={styles['hero-section']} style={{
+          background: `linear-gradient(
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url(${heroImage})`
+        }}>
+          <div className="container">
+            <div className={styles['hero-section-text']}>
+              <div className={styles['content']}>
+                <span className={styles['hero-title']}>
+                  <p>More than 2.5m listings</p>
+                  <p>Think Thaimates this</p>
+                  <p>Christmas</p>
+                </span>
+                <h3 className={styles['hero-subtitle']}>
+                  <p>ศูนย์รวมคนไทยในประเทศออสเตรเลีย</p>
+                  <p>หางาน หาเพื่อน หาบ้านพัก ซื้อ-ขาย</p>
+                </h3>
+                <Button secondary>
+                  FREE POST
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 Hero.propTypes = {
-  headline: PropTypes.string,
-  title: PropTypes.string,
-}
-
-Hero.defaultProps = {
-  headline: 'Explore',
-  title: 'โพ้สใหม่?',
-}
+};
 
 export default Hero

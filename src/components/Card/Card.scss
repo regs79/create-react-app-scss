@@ -1,57 +1,105 @@
-@import "../../styles/config/index";
+@import "~styles/config/variables";
+@import "~styles/scss/variables";
+@import "~styles/scss/mixins";
 
 .card {
+  position: relative;
+  // width: 100%;
 
-  &.default {
+  .link {
     display: block;
-    padding: 0px;
-    border: 1px solid rgba(226, 226, 226, 0.74);
-    -webkit-box-shadow: 0px 2px 5px rgba(174, 174, 174, 0.23);
-    box-shadow: 0px 2px 5px rgba(174, 174, 174, 0.23);
-    margin-bottom: 15px;
-    background-color: white;
-    border-radius: 2px;
+    width: 100%;
+    height: 100%;
+    color: $primary-color;
+    cursor: pointer;
 
-    .thumb {
-      display: block;
-      height: 200px;
-      box-sizing: content-box;
-
-      .imgCover {
-        background-repeat: repeat;
+    .cardImage {
+      overflow: hidden;
+      position: relative;
+      border-radius: 4px;
+      background-size: cover;
+      background-position: 50%;
+      background-color: $primary-color;
+      color: #fff;
+      &:before {
+        content: "";
+        display: block;
         width: 100%;
         height: 100%;
-        background-size: cover;
-        background-position: center;
-        background-origin: border-box;
-        display: block;
-        box-sizing: border-box;
+        border-radius: inherit;
+        background-color: rgba(0,0,0,.2);
       }
-    }
 
-    .content {
-      display: inline-block;
+      .image {
+        display: block;
+      }
 
-      .title {
-        padding: 10px 0;
-        min-height: 150px;
-        overflow: hidden;
-        font-family: 'Thonburi';
-
-        a {
-          cursor: pointer;
-          color: $font-subcolor;
-          line-height: 24px;
-          letter-spacing: 0.4px;
-          text-decoration: none;
+      .cardInfo {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+        padding: 8px;
+        color: #fff;
+        background: -webkit-gradient(linear,left top,left bottom,from(transparent),to(rgba(0,0,0,.7)));
+        background: linear-gradient(transparent,rgba(0,0,0,.7));
+        border-radius: 0 0 4px 4px;
+        .head, .sub {
+          display: block;
+        }
+        .head {
+          @include fontSize(1.5, 2);
+          position: relative;
+        }
+        .sub {
+          @include fontSize(1.2, 2);
+          position: relative;
         }
       }
+    }
+  }
+  .content {
+    position: relative;
+    display: flex;
 
-      .poster {
-        display: block;
-        position: relative;
+    a {
+      text-decoration: none;
+    }
+
+    .link {
+      flex: 1;
+      min-width: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+
+      .details {
+        padding: 8px;
+        @include fontSize(.9, 1.4);
+
+        h3 {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-weight: 700;
+          color: $primary-color;
+          @include fontSize(1, 1.4);
+        }
+
+        span {
+          color: lighten($primary-color, 40);
+          a {
+            text-decoration: none;
+          }
+        }
       }
-
+    }
+    .options {
+      vertical-align: top;
+      padding: 2px;
+      display: inline-block;
     }
   }
 }

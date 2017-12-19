@@ -1,13 +1,24 @@
-.homeBody {
-  margin: 10px auto;
-  min-height: 2000px;
+@import "~styles/config/variables";
+@import "~styles/scss/variables";
+@import "~styles/scss/mixins";
 
-  &.fixed {
-    margin: 60px auto;
+.title {
+  @include hardFont();
+}
+
+.jobs {
+  margin: 30px auto;
+  clear: both;
+}
+
+.card {
+  padding: 0 !important;
+  @include breakpoint(m) {
+    padding: 10px !important;
+    max-width: 343px;
   }
-
-  .articles {
-    margin: 25px auto;
-    display: block;
+  @include breakpoint(l) {
+    padding: 10px !important;
+    max-width: 343px;
   }
 }

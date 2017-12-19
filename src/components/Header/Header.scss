@@ -1,0 +1,77 @@
+@import "~styles/config/variables";
+@import "~styles/scss/variables";
+@import "~styles/scss/mixins";
+
+.header {
+  display: block;
+  min-height: 53px;
+  clear: both;
+  border-bottom: 1px solid $bluelight;
+
+  .hamburger {
+    position: relative;
+    padding: 10px;
+  }
+
+  .navMenuLink {
+    position: relative;
+    display: none;
+
+    @include breakpoint(l) {
+      display: block;
+      ul {
+        margin: 0;
+        @include horizontal-list();
+        a {
+          padding: 15px 15px 12px 15px;
+          display: block;
+          border-bottom: 4px solid transparent;
+          text-decoration: none;
+          &:hover {
+            border-bottom: 4px solid $secondary-color;
+          }
+        }
+      }
+    }
+
+    .link {
+      position: relative;
+    }
+    .label {
+      position: relative;
+    }
+  }
+
+  .navMenu {
+    position: relative;
+    ul {
+      margin: 0;
+      @include horizontal-list-padded(10px, 5px);
+    }
+    .label {
+      display: none;
+    }
+
+    @include breakpoint(l) {
+      ul {
+        margin: 0;
+        @include horizontal-list-padded(5px, 15px);
+        a {
+          display: block;
+          text-decoration: none;
+        }
+        li {
+          &:hover .icon {
+             color: $secondary-color;
+          }
+        }
+      }
+      .label {
+        display: inline-block;
+        position: relative;
+        bottom: 4px;
+        left: 9px;
+      }
+    }
+  }
+}

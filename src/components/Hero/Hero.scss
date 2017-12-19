@@ -1,28 +1,89 @@
-@import "../../styles/config/index";
+@import "~styles/config/variables";
+@import "~styles/scss/variables";
+@import "~styles/scss/mixins";
 
 .container {
+  display: block;
+  position: relative;
   clear: both;
-  padding: 0px;
-  margin: 0px;
-  background-color: white;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.04);
-}
 
-.hero {
-  padding: 15px 0px;
+  .hero-section {
+    background-repeat: no-repeat !important;
+    background-position: 100% !important;
+    background-size: cover !important;
+    height: 60vh;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 
-  .subh1 {
-    left: 10px;
-    font-weight: 300;
+    @include breakpoint(m) {
+      height: 300px;
+    }
+
+    @include breakpoint(xl) {
+      height: 450px;
+    }
+
+    .hero-section-text {
+      color: $white;
+      button {
+        width: 100%;
+      }
+      .content {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        right: 10px;
+      }
+
+      @include breakpoint(m) {
+        button {
+          width: 30%;
+        }
+      };
+
+      @include breakpoint(m) {
+        .content {
+          position: relative;
+        }
+      }
+    }
   }
 
-  .h1, .subh1 {
-    color: $brand-background-color;
-    letter-spacing: .05em;
-    position: relative;
-    display: inline-block;
-    top: 9px;
-    margin: 0px;
-    padding: 0px;
+  .hero-title {
+    color: white;
+    font-weight: bold;
+    letter-spacing: -1;
+    @include fontSize(1.7, 1.7);
+
+    @include breakpoint(xl) {
+      @include fontSize(2.8, 2.7);
+    };
+
+    p {
+      display: block;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .hero-subtitle {
+    color: white;
+    font-weight: 300;
+    letter-spacing: 1.2;
+    margin: 20px 0;;
+    @include fontSize(.9, 1.2);
+
+    @include breakpoint(xl) {
+      @include fontSize(1.2, 1.9);
+    };
+
+    p {
+      display: block;
+      padding: 0;
+      margin: 0;
+    }
   }
 }

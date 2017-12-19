@@ -1,39 +1,38 @@
-import React from 'react';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import HeroSegment from 'components/HeroSegment'
-import Footer from 'components/Footer'
-import MainHeader from 'components/MainHeader'
 import { isHome } from 'utils'
 
-class App extends React.Component {
+// Components
+import Header from 'components/Header'
 
+class App extends React.Component {
   render() {
     const { children } = this.props
     const _isHome = isHome(this.props.location)
+
+
     return (
       <div>
-        {(_isHome) ? <HeroSegment children={<MainHeader />}/> : <MainHeader />}
+        <Header
+          onClick={this.handleShow}
+        />
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
             return React.cloneElement(child)
           }
         })}
-        <Footer />
       </div>
-    );
+    )
   }
 }
 
 App.propTypes = {
   children: PropTypes.node.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
-  getUserAccess: PropTypes.func,
 }
 
 App.defaultProps = {
   children: null,
-  isAuthenticated: false,
-  getUserAccess: null,
 }
 
 export default App

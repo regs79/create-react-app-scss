@@ -1,0 +1,25 @@
+@import "~styles/config/variables";
+@import "~styles/scss/variables";
+@import "~styles/scss/mixins";
+
+.sliders {
+  display: block;
+
+  .nextArrow, .prevArrow {
+    z-index: 3000;
+    top: 30%;
+  }
+  .nextArrow {
+    right: -10px;
+    &:before {
+      content: '' !important;
+    }
+  }
+
+  .prevArrow {
+    left: -10px;
+    &:before {
+      content: '' !important;
+    }
+  }
+}

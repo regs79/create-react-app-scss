@@ -1,7 +1,7 @@
 import React from 'react'
 
-const MOBILE_SIZE = 568
-const DESKTOP_SIZE = 1024
+const MOBILE_SIZE = 720
+const DESKTOP_SIZE = 1000
 
 export default function WindowEvent(WrapperComponent) {
   return class Window extends React.Component {
@@ -12,6 +12,8 @@ export default function WindowEvent(WrapperComponent) {
         windowSize: {
           width: window.innerWidth,
           height: window.innerHeight,
+          mobile: window.innerWidth <= MOBILE_SIZE,
+          desktop: window.innerWidth >= DESKTOP_SIZE,
         }
       }
       this.handleResize = this.handleResize.bind(this)
