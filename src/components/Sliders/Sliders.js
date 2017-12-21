@@ -17,7 +17,7 @@ const NextArrow = ({
     },
     onClick: onClick,
   }
-  // return React.createElement('div', nextArrowProps, <Icon icon="ion-android-arrow-dropright-circle" size="32" />)
+  return React.createElement('div', nextArrowProps)
 }
 
 const PrevArrow = ({
@@ -25,6 +25,7 @@ const PrevArrow = ({
   style,
   onClick,
 }) => {
+  console.log('style', style)
   const prevArrowProps = {
     className: cn(className, styles.prevArrow),
     style: {
@@ -32,38 +33,27 @@ const PrevArrow = ({
     },
     onClick: onClick,
   }
-  return React.createElement('div', prevArrowProps, <Icon icon="ion-android-arrow-dropleft-circle" size="32" />)
+  return React.createElement('div', prevArrowProps)
 }
 
+// $container-m:                                   720px !default;
+// $container-l:                                   960px !default;
+// $container-xl:                                  1120px !default;
 export const Sliders = ({
   children,
+  slidesToShow,
 }) => {
   var settings = {
     dots: false,
     infinite: false,
-    slidesToShow: 1,
+    slidesToShow: 4,
     slidesToScroll: 1,
+    lazyLoad: true,
+    speed: 500,
+    autoplaySpeed: 0,
+    cssEase: "linear",
     nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />
-
-    // responsive: [
-    //   {
-    //     breakpoint: 768,
-    //     settings: {
-    //       slidesToShow: 1
-    //     }
-    //   },
-    //   {
-    //     breakpoint: 1024,
-    //     settings: {
-    //       slidesToShow: 1
-    //     }
-    //   },
-    //   {
-    //     breakpoint: 100000,
-    //     settings: 'unslick'
-    //   }
-    // ]
+    prevArrow: <PrevArrow />,
   }
 
   return (

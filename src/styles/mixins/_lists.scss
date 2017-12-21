@@ -1,0 +1,40 @@
+// Lists
+
+// Unstyled keeps list items block level, just removes default browser padding and list-style
+@mixin list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+@mixin horizontal-list {
+  padding: 0;
+  text-align: center;
+  word-spacing: -1em;
+  display: table;
+  width: 100%;
+  li {
+    display: inline-block;
+    word-spacing: 0;
+  }
+}
+
+// Horizontal list separated by :after content.
+
+@mixin horizontal-list-separated($separator:'') {
+  @include horizontal-list;
+  li:not(.last):after {
+    content: $separator;
+  }
+}
+
+// Horizontal list with padded links.
+
+@mixin horizontal-list-padded($vertical, $horizontal) {
+  @include horizontal-list;
+  li {
+    padding: $vertical 0;
+    a {
+      padding: $vertical $horizontal;
+    }
+  }
+}

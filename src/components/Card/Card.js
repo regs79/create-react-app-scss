@@ -1,3 +1,4 @@
+import faker from 'faker'
 import React from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
@@ -6,15 +7,15 @@ import styles from './Card.scss'
 export const Card = (props) => {
   return (
     <div className={styles.card}>
-      <a href="/image" className={styles.link}>
+      <a href="#" className={styles.link}>
         <div className={styles.cardImage}>
           <img
-            src='https://res-2.cloudinary.com/hd1n2hd4y/image/upload/f_auto,fl_lossy,q_auto,c_fill,w_320,h_214,dpr_2.0/l-Harcourts-6VkBnOOlKEG6lHRqbfOjgg.jpg'
+            src={`https://cdn.pixabay.com/photo/2017/12/04/03/06/thai-noodle-2996247_640.jpg`}
             className={cn('img-fluid', styles.image)}
             alt="Card"
           />
           <div className={styles.cardInfo}>
-            <span className={styles.head}>พ่อครัวร้านอาหารไทย</span>
+            <span className={styles.head}>{faker.lorem.sentence()}</span>
             <span className={styles.sub}>1 ตำแหน่ง - $25 / hr</span>
           </div>
         </div>
@@ -22,8 +23,8 @@ export const Card = (props) => {
       <div className={styles.content}>
         <a className={styles.link}>
           <div className={styles.details}>
-            <h3>At Ease Thai Restaurant</h3>
-            <span>~1.4 km • Abbotsford</span>
+            <h3>{faker.company.companyName()}</h3>
+            <span>~1.4 km • {faker.name.jobArea()}</span>
           </div>
         </a>
         <div className={styles.options}>

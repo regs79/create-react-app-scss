@@ -2,13 +2,11 @@ import React from 'react'
 import cn from 'classnames'
 import styles from './Icon.scss'
 
-export const Icon = (props) => {
-  const {
-    icon,
-    className,
-    size,
-  } = props
-  console.log('size', size)
+export const Icon = ({
+  icon,
+  size,
+  className,
+}) => {
   const iconProps = {
     style: {
       fontSize: size,

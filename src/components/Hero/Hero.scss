@@ -1,89 +1,61 @@
-@import "~styles/config/variables";
-@import "~styles/scss/variables";
-@import "~styles/scss/mixins";
+@import "~styles/functions";
+@import "~styles/variables";
+@import "~styles/mixins";
 
-.container {
-  display: block;
-  position: relative;
-  clear: both;
+.hero-section {
+  background-repeat: no-repeat !important;
+  background-position: 100% !important;
+  background-size: cover !important;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 
-  .hero-section {
-    background-repeat: no-repeat !important;
-    background-position: 100% !important;
-    background-size: cover !important;
-    height: 60vh;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+.hero-section-text {
+  color: $white;
+}
 
-    @include breakpoint(m) {
-      height: 300px;
+.hero-title {
+  color: white;
+  font-weight: bold;
+  letter-spacing: -1;
+
+  p {
+    display: block;
+    padding: 0;
+    margin: 0;
+    @include media-breakpoint-up(md) {
+      font-size: $h2-font-size;
+      line-height: $headings-line-height;
     }
-
-    @include breakpoint(xl) {
-      height: 450px;
-    }
-
-    .hero-section-text {
-      color: $white;
-      button {
-        width: 100%;
-      }
-      .content {
-        position: absolute;
-        left: 10px;
-        bottom: 10px;
-        right: 10px;
-      }
-
-      @include breakpoint(m) {
-        button {
-          width: 30%;
-        }
-      };
-
-      @include breakpoint(m) {
-        .content {
-          position: relative;
-        }
-      }
+    @include media-breakpoint-down(md) {
+      font-size: $h5-font-size;
+      line-height: $headings-line-height;
     }
   }
+}
 
-  .hero-title {
-    color: white;
-    font-weight: bold;
-    letter-spacing: -1;
-    @include fontSize(1.7, 1.7);
+.hero-subtitle {
+  color: white;
+  font-weight: 300;
+  letter-spacing: 1.2;
+  margin: 15px 0;;
 
-    @include breakpoint(xl) {
-      @include fontSize(2.8, 2.7);
-    };
-
-    p {
-      display: block;
-      padding: 0;
-      margin: 0;
+  p {
+    display: block;
+    padding: 0;
+    margin: 0;
+    @include media-breakpoint-up(md) {
+      font-size: $h4-font-size;
+      line-height: $line-height-base;
+      font-weight: $lead-font-weight;
     }
-  }
-
-  .hero-subtitle {
-    color: white;
-    font-weight: 300;
-    letter-spacing: 1.2;
-    margin: 20px 0;;
-    @include fontSize(.9, 1.2);
-
-    @include breakpoint(xl) {
-      @include fontSize(1.2, 1.9);
-    };
-
-    p {
-      display: block;
-      padding: 0;
-      margin: 0;
+    @include media-breakpoint-down(md) {
+      font-size: $h6-font-size;
+      line-height: $line-height-base;
+      font-weight: $lead-font-weight;
     }
   }
 }

@@ -5,17 +5,20 @@ import styles from './Button.scss'
 
 export const Button = ({
   children,
+  className,
   ...rest,
 }) => {
-  let btnProps = {}
   const btnClassMapper = {
-    primary: 'button-primary',
-    secondary: 'button-secondary',
-    link: 'button-link',
+    darkpink: 'btn-darkpink',
+    primary: 'btn-primary',
+    secondary: 'btn-secondary',
+    link: 'btn-link',
   }
 
   const btnClassSizes = {
-    medium: 'btn-medium'
+    medium: 'btn-medium',
+    full: 'btn-block',
+    small: 'btn-sm'
   }
   const allClasses = []
 
@@ -26,15 +29,15 @@ export const Button = ({
     }
   }
 
-  return React.createElement('button', { className: cn('button', styles.btn, allClasses)}, children)
+  return React.createElement('button', { className: cn('btn', styles.btn, allClasses, className)}, children)
 }
 
 Button.propTypes = {
-  // children: PropTypes.string,
+  className: PropTypes.string,
 }
 
 Button.propTypes = {
-  // children: 'Label',
+  className: null,
 }
 
 export default Button

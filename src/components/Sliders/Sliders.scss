@@ -1,25 +1,40 @@
-@import "~styles/config/variables";
-@import "~styles/scss/variables";
-@import "~styles/scss/mixins";
+@import "~styles/functions";
+@import "~styles/variables";
+@import "~styles/mixins/breakpoints";
+@import "~styles/mixins/fonts";
 
 .sliders {
   display: block;
 
   .nextArrow, .prevArrow {
     z-index: 3000;
-    top: 30%;
+    top: 36%;
   }
   .nextArrow {
-    right: -10px;
     &:before {
-      content: '' !important;
+      display: block;
+      content: "";
+      border: 3px solid #3c515b;
+      height: 20px;
+      width: 20px;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      border-left: none;
+      border-bottom: none;
     }
   }
 
   .prevArrow {
-    left: -10px;
     &:before {
-      content: '' !important;
+      display: block;
+      content: "";
+      border: 3px solid #3c515b;
+      height: 20px;
+      width: 20px;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      border-right: none;
+      border-top: none;
     }
   }
 }

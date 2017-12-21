@@ -1,10 +1,4 @@
-@import "css/normalize";
 @import "ionicons/ionicons";
-// Import Base
-@import "base";
-
-// Import Base Helpers
-@import "scss/_helpers";
-
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
+@import "css/normalize";
+@import "bootstrap";
+@import "components/index";

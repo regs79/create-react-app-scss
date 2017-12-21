@@ -1,24 +1,16 @@
-@import "~styles/config/variables";
-@import "~styles/scss/variables";
-@import "~styles/scss/mixins";
+@import "~styles/functions";
+@import "~styles/variables";
+@import "~styles/mixins/breakpoints";
+@import "~styles/mixins/fonts";
 
 .title {
-  @include hardFont();
+  color: $primary-color;
+  @include media-breakpoint-up(xs) {
+    color: red;
+  }
 }
 
 .jobs {
   margin: 30px auto;
-  clear: both;
-}
-
-.card {
-  padding: 0 !important;
-  @include breakpoint(m) {
-    padding: 10px !important;
-    max-width: 343px;
-  }
-  @include breakpoint(l) {
-    padding: 10px !important;
-    max-width: 343px;
-  }
+  // @include containerResizer();
 }
