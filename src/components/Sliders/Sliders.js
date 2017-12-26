@@ -46,7 +46,7 @@ export const Sliders = ({
   var settings = {
     dots: false,
     infinite: false,
-    slidesToShow: 4,
+    slidesToShow: slidesToShow,
     slidesToScroll: 1,
     lazyLoad: true,
     speed: 500,
@@ -54,6 +54,7 @@ export const Sliders = ({
     cssEase: "linear",
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    className: 'row',
   }
 
   return (

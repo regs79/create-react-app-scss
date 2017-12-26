@@ -1,0 +1,89 @@
+@import "~styles/functions";
+@import "~styles/variables";
+@import "~styles/mixins";
+
+.container {
+  display: block;
+}
+
+.section {
+  @include media-breakpoint-up(lg) {
+    width: 20vw;
+  }
+  @include media-breakpoint-only(md) {
+    width: 40vw;
+  }
+  @include media-breakpoint-down(sm) {
+    width: 80vw;
+  }
+}
+
+.drawer {
+  position: absolute;
+  z-index: 99;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  opacity: 1;
+  background: white;
+  overflow: scroll;
+  @extend .section;
+}
+
+.user {
+  display: block;
+}
+
+.content {
+  // margin-top: 110px;
+}
+
+.overlay {
+  display: block;
+  opacity: .7;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.7;
+    background-color: rgba(0, 0, 0, 0.49);
+    background-size: cover;
+  }
+}
+
+.menuLink {
+  display: block;
+  padding: 10px;
+  border-bottom: 1px solid $bluelight;
+}
+
+.footer {
+  border-top: 1px solid $bluelight;
+}
+
+.close {
+  position: absolute;
+  top: -8px;
+  @include media-breakpoint-up(lg) {
+    left: 20vw;
+  }
+  @include media-breakpoint-only(md) {
+    left: 40vw;
+  }
+  @include media-breakpoint-down(sm) {
+    left: 80vw;
+  }
+  .closeIcon {
+    color: $primary-color;
+  }
+}

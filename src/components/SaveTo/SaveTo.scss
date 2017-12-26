@@ -1,0 +1,45 @@
+@import "~styles/functions";
+@import "~styles/variables";
+@import "~styles/mixins";
+
+
+@mixin saved {
+  &:before {
+    content: "\f443"; // heart
+    // content: "\f2a6" // pins
+    // content: "\f48d" // tag
+    // content: "\f3ff"; // checked
+    // content: "\f41f";
+    // content: "\f420";
+  }
+}
+
+@mixin unsaved {
+  &:before {
+    content: "\f442"; // heart
+    // content: "\f2a6" // pin
+    // content: "\f48c" // tag
+    // content: "\f401"; // check circle
+    // content: "\f41f";
+  }
+}
+
+.saveto {
+  position: absolute;
+  top: 0;
+  right: 10px;
+
+  .saveIcon {
+    color: $white;
+    @include unsaved();
+
+    &:hover {
+      color: $darkpink;
+      @include saved();
+    }
+    &.saved {
+      color: $darkpink;
+      @include saved();
+    }
+  }
+}

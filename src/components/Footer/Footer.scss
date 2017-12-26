@@ -1,0 +1,19 @@
+@import "~styles/functions";
+@import "~styles/variables";
+@import "~styles/mixins/breakpoints";
+@import "~styles/mixins/fonts";
+
+
+.sub {
+  border-top: .5px solid #d3e0e2;
+}
+.footer {
+  border-top: .5px solid #d7d7d7;
+  background: white;
+  // background: rgba(234, 242, 254, 0.23);
+  box-shadow: inset 0px 3px 3px -2px rgba(0, 0, 0, 0.09);
+  a {
+    color: $primary-color;
+    font-weight: 300;
+  }
+}

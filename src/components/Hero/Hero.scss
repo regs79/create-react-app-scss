@@ -2,6 +2,19 @@
 @import "~styles/variables";
 @import "~styles/mixins";
 
+
+.hero {
+  @include media-breakpoint-down(sm) {
+    padding: 7rem 0rem !important;
+  }
+  @include media-breakpoint-only(md) {
+    padding: 3rem 0rem !important;
+  }
+  @include media-breakpoint-up(lg) {
+    padding: 8rem 0rem !important;
+  }
+}
+
 .hero-section {
   background-repeat: no-repeat !important;
   background-position: 100% !important;
@@ -13,25 +26,19 @@
   width: 100%;
 }
 
-.hero-section-text {
-  color: $white;
-}
-
 .hero-title {
   color: white;
   font-weight: bold;
-  letter-spacing: -1;
-
+  letter-spacing: -1px;
+  display: block;
   p {
     display: block;
-    padding: 0;
-    margin: 0;
     @include media-breakpoint-up(md) {
-      font-size: $h2-font-size;
+      font-size: $h1-font-size;
       line-height: $headings-line-height;
     }
     @include media-breakpoint-down(md) {
-      font-size: $h5-font-size;
+      font-size: $h2-font-size;
       line-height: $headings-line-height;
     }
   }
@@ -41,19 +48,14 @@
   color: white;
   font-weight: 300;
   letter-spacing: 1.2;
-  margin: 15px 0;;
-
   p {
-    display: block;
-    padding: 0;
-    margin: 0;
     @include media-breakpoint-up(md) {
       font-size: $h4-font-size;
       line-height: $line-height-base;
       font-weight: $lead-font-weight;
     }
     @include media-breakpoint-down(md) {
-      font-size: $h6-font-size;
+      font-size: $h5-font-size;
       line-height: $line-height-base;
       font-weight: $lead-font-weight;
     }

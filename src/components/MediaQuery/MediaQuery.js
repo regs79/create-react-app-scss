@@ -10,9 +10,14 @@ export const MediaQuery = ({ ...rest, children }) => {
     lg: 992,
     xl: 1200,
   }
+  const responsiveProps = []
   for (var variable in rest) {
     if (rest.hasOwnProperty(variable)) {
       const grid = {
+        only: {
+          minWidth: gridGreakpoints[rest[variable]],
+          maxWidth: gridGreakpoints[rest[variable]],
+        },
         up: {
           minWidth: gridGreakpoints[rest[variable]],
         },
@@ -20,14 +25,17 @@ export const MediaQuery = ({ ...rest, children }) => {
           maxWidth: gridGreakpoints[rest[variable]],
         },
       }
-      return (
-        <Responsive {...grid[variable]}>
-          {React.cloneElement(children)}
-        </Responsive>
-      );
+      if (typeof grid[variable] !== 'undefined') {
+        responsiveProps.push(grid[variable])
+      }
     }
-    return React.cloneElement(children)
   }
+  console.log('{...responsiveProps.reduce(d => d)}', {...responsiveProps.reduce(d => d)})
+  return (
+    <Responsive {...responsiveProps.reduce(d => d)}>
+      {React.cloneElement(children)}
+    </Responsive>
+  );
 }
 
 MediaQuery.propTypes = {

@@ -4,3 +4,10 @@
   font-size: ($sizeValue / 10) + rem;
   line-height: ($line / 10) + rem;
 }
+
+@mixin headlineFontsize {
+  font-size: $h6-font-size;
+  color: $primary-color;
+  letter-spacing: .02rem;
+  font-weight: 500;
+};

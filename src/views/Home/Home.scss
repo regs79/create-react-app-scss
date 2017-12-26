@@ -1,16 +1,27 @@
 @import "~styles/functions";
 @import "~styles/variables";
-@import "~styles/mixins/breakpoints";
-@import "~styles/mixins/fonts";
+@import "~styles/mixins";
 
 .title {
-  color: $primary-color;
-  @include media-breakpoint-up(xs) {
-    color: red;
+  color: $secondary-color;
+  .seeall {
+    padding-left: 15px;
   }
 }
 
-.jobs {
+.sections {
   margin: 30px auto;
-  // @include containerResizer();
+}
+
+.row {
+  @include make-row();
+  @include media-breakpoint-down(sm) {
+    margin-top: 1.5rem;
+  }
+}
+
+.cardBody {
+  min-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

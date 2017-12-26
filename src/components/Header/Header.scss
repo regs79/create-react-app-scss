@@ -4,6 +4,8 @@
 
 .navbar {
   padding: 0 1rem !important;
+  border-bottom: 2px solid rgba($secondary, 0.19);
+
   @include media-breakpoint-down(md) {
     padding: .5rem !important;
   }
@@ -23,6 +25,9 @@
         position: relative;
         top: 3px;
         font-weight: 700;
+      }
+      &.active {
+        border-bottom: 4px solid $secondary-color;
       }
     }
   }
