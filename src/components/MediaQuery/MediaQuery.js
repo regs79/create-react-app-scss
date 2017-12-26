@@ -30,7 +30,6 @@ export const MediaQuery = ({ ...rest, children }) => {
       }
     }
   }
-  console.log('{...responsiveProps.reduce(d => d)}', {...responsiveProps.reduce(d => d)})
   return (
     <Responsive {...responsiveProps.reduce(d => d)}>
       {React.cloneElement(children)}

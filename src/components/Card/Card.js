@@ -5,6 +5,7 @@ import SaveTo from 'components/SaveTo'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
 import Badge from 'components/Badge'
+import LazyImage from 'components/LazyImage'
 import styles from './Card.scss'
 
 export const Card = ({
@@ -14,14 +15,15 @@ export const Card = ({
   subtitle,
   showTag,
   showPoster,
+  thumbnail,
 }) => {
   const isShowPoster = showPoster === true
   const isShowTag = showTag === true
   return (
     <div className={styles.card}>
       <div className={cn('card bg-light text-white rounded', styles.innderCard)}>
-        <Link to="">
-          <img className="card-img" src={faker.image.image()} alt="Card image" />
+        <Link to="" className={styles.cover}>
+          <LazyImage className="card-img" src={thumbnail} alt="Card image" />
         </Link>
         <SaveTo className={styles.saveTo} />
         <div className={cn('card-img-overlay rounded', styles.content)}>
@@ -57,7 +59,7 @@ export const Card = ({
         </div>
         {(isShowPoster) &&
           <div className="col-2 pt-2 text-right">
-            <img src={faker.internet.avatar()} alt="..." class="img-thumbnail rounded-circle" />
+            <img src={faker.internet.avatar()} alt="..." className="img-thumbnail rounded-circle" />
           </div>
         }
         {(isShowTag) &&

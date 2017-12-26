@@ -21,21 +21,46 @@ class Home extends React.Component {
             <LeadTitle lead={`กระทู้แนะนำ`} link={'/'} />
             <div className="row">
               <div className="col-md-6 col-sm-12 pl-2 pr-2">
-                <FeatureCard isShowPoster headline={`5 สุดยอดสถานที่ท่องเที่ยวในเมลเบิร์น Melbourne ออสเตรเลีย`} subheadline={`ในช่วงเดือนเมษายน เป็นช่วงที่อากาศที่ดีมากๆ ไม่หนาวหรือร้อนจนเกินไป เหมาะสำหรับการเที่ยวพักผ่อนสุดๆ ไปเลยค่ะ เมืองเมลเบิร์นมีสถานที่น่าสนใจมากมาย`} />
+                <FeatureCard
+                  isShowPoster
+                  headline={`5 สุดยอดสถานที่ท่องเที่ยวในเมลเบิร์น Melbourne ออสเตรเลีย`}
+                  subheadline={`ในช่วงเดือนเมษายน เป็นช่วงที่อากาศที่ดีมากๆ ไม่หนาวหรือร้อนจนเกินไป เหมาะสำหรับการเที่ยวพักผ่อนสุดๆ ไปเลยค่ะ เมืองเมลเบิร์นมีสถานที่น่าสนใจมากมาย`}
+                  thumbnail={`https://source.unsplash.com/random/800x800`}
+                />
               </div>
               <div className="col-md-6 col-sm-12">
                 <div className={styles.row}>
                   <div className="col-6 pl-2 pr-2 mb-4">
-                    <Card headline={`AUD 45`} title={`หม้อสุกี้บาร์บีคิวรุ่น Otto PG-155`} subtitle={`~1.4k from Melbourne CBD`} />
+                    <Card
+                      headline={`AUD 45`}
+                      title={`หม้อสุกี้บาร์บีคิวรุ่น Otto PG-155`}
+                      subtitle={`~1.4k from Melbourne CBD`}
+                      thumbnail={`https://source.unsplash.com/random/220x160`}
+                    />
                   </div>
                   <div className="col-6 pl-2 pr-2 mb-4">
-                    <Card headline={`AUD 45`} title={`หม้อสุกี้บาร์บีคิวรุ่น Otto PG-155`} subtitle={`~1.4k from Melbourne CBD`} />
+                    <Card
+                      headline={`AUD 45`}
+                      title={`หม้อสุกี้บาร์บีคิวรุ่น Otto PG-155`}
+                      subtitle={`~1.4k from Melbourne CBD`}
+                      thumbnail={`https://source.unsplash.com/random/220x160`}
+                    />
                   </div>
                   <div className="col-6 pl-2 pr-2 mb-4">
-                    <Card headline={`AUD 45`} title={`หม้อสุกี้บาร์บีคิวรุ่น Otto PG-155`} subtitle={`~1.4k from Melbourne CBD`} />
+                    <Card
+                      headline={`AUD 45`}
+                      title={`หม้อสุกี้บาร์บีคิวรุ่น Otto PG-155`}
+                      subtitle={`~1.4k from Melbourne CBD`}
+                      thumbnail={`https://source.unsplash.com/random/220x160`}
+                    />
                   </div>
                   <div className="col-6 pl-2 pr-2 mb-4">
-                    <Card headline={`AUD 45`} title={`หม้อสุกี้บาร์บีคิวรุ่น Otto PG-155`} subtitle={`~1.4k from Melbourne CBD`} />
+                    <Card
+                      headline={`AUD 45`}
+                      title={`หม้อสุกี้บาร์บีคิวรุ่น Otto PG-155`}
+                      subtitle={`~1.4k from Melbourne CBD`}
+                      thumbnail={`https://source.unsplash.com/random/220x160`}
+                    />
                   </div>
                 </div>
               </div>
@@ -46,7 +71,13 @@ class Home extends React.Component {
             <MediaQuery down="sm">
               <div className="row">
                 <div className="col-sm-12 col-md-6 pl-2 pr-2">
-                  <Card showTag headline={`AUD 145 / สัปดาห์`} title={`ห้องว่างใกล้เมือง สำหรับผู้หญิงเท่านั้น`} subtitle={`~1.4k from Melbourne CBD`} />
+                  <Card
+                    showTag
+                    headline={`AUD 145 / สัปดาห์`}
+                    title={`ห้องว่างใกล้เมือง สำหรับผู้หญิงเท่านั้น`}
+                    subtitle={`~1.4k from Melbourne CBD`}
+                    thumbnail={`https://source.unsplash.com/random/220x160`}
+                  />
                 </div>
               </div>
             </MediaQuery>
@@ -54,7 +85,13 @@ class Home extends React.Component {
               <Sliders slidesToShow={3}>
                 {times(6, () => (
                   <div className="col pl-2 pr-2">
-                    <Card showTag headline={`AUD 145 / สัปดาห์`} title={`ห้องว่างใกล้เมือง สำหรับผู้หญิงเท่านั้น`} subtitle={`~1.4k from Melbourne CBD`} />
+                    <Card
+                      showTag
+                      headline={`AUD 145 / สัปดาห์`}
+                      title={`ห้องว่างใกล้เมือง สำหรับผู้หญิงเท่านั้น`}
+                      subtitle={`~1.4k from Melbourne CBD`}
+                      thumbnail={`https://source.unsplash.com/random/220x160`}
+                    />
                   </div>))}
               </Sliders>
             </MediaQuery>
@@ -62,7 +99,13 @@ class Home extends React.Component {
               <Sliders slidesToShow={4}>
                 {times(8, () => (
                   <div className="col pl-2 pr-2">
-                    <Card showTag headline={`AUD 145 / สัปดาห์`} title={`ห้องว่างใกล้เมือง สำหรับผู้หญิงเท่านั้น`} subtitle={`~1.4k from Melbourne CBD`} />
+                    <Card
+                      showTag
+                      headline={`AUD 145 / สัปดาห์`}
+                      title={`ห้องว่างใกล้เมือง สำหรับผู้หญิงเท่านั้น`}
+                      subtitle={`~1.4k from Melbourne CBD`}
+                      thumbnail={`https://source.unsplash.com/random/220x160`}
+                    />
                   </div>))}
               </Sliders>
             </MediaQuery>
@@ -72,7 +115,14 @@ class Home extends React.Component {
             <MediaQuery down="sm">
               <div className="row">
                 <div className="col-sm-12 col-md-6 pl-2 pr-2">
-                  <Card showTag subheadline={`AUD 154 / ชม`} headline={`ต้องการพ่อครัวผัด 1 ตำแหน่ง`} title={faker.company.companyName()} subtitle={`~1.4k from Melbourne CBD`} />
+                  <Card
+                    showTag
+                    subheadline={`AUD 154 / ชม`}
+                    headline={`ต้องการพ่อครัวผัด 1 ตำแหน่ง`}
+                    title={faker.company.companyName()}
+                    subtitle={`~1.4k from Melbourne CBD`}
+                    thumbnail={`https://source.unsplash.com/random/220x160`}
+                  />
                 </div>
               </div>
             </MediaQuery>
@@ -80,7 +130,14 @@ class Home extends React.Component {
               <Sliders slidesToShow={3}>
                 {times(6, () => (
                   <div className="col pl-2 pr-2">
-                    <Card showTag subheadline={`AUD 154 / ชม`} headline={`ต้องการพ่อครัวผัด 1 ตำแหน่ง`} title={faker.company.companyName()} subtitle={`~1.4k from Melbourne CBD`} />
+                    <Card
+                      showTag
+                      subheadline={`AUD 154 / ชม`}
+                      headline={`ต้องการพ่อครัวผัด 1 ตำแหน่ง`}
+                      title={faker.company.companyName()}
+                      subtitle={`~1.4k from Melbourne CBD`}
+                      thumbnail={`https://source.unsplash.com/random/220x160`}
+                    />
                   </div>))}
               </Sliders>
             </MediaQuery>
@@ -88,7 +145,14 @@ class Home extends React.Component {
               <Sliders slidesToShow={4}>
                 {times(8, () => (
                   <div className="col pl-2 pr-2">
-                    <Card showTag subheadline={`AUD 154 / ชม`} headline={`ต้องการพ่อครัวผัด 1 ตำแหน่ง`} title={faker.company.companyName()} subtitle={`~1.4k from Melbourne CBD`} />
+                    <Card
+                      showTag
+                      subheadline={`AUD 154 / ชม`}
+                      headline={`ต้องการพ่อครัวผัด 1 ตำแหน่ง`}
+                      title={faker.company.companyName()}
+                      subtitle={`~1.4k from Melbourne CBD`}
+                      thumbnail={`https://source.unsplash.com/random/220x160`}
+                    />
                   </div>))}
               </Sliders>
             </MediaQuery>
@@ -98,7 +162,13 @@ class Home extends React.Component {
             <MediaQuery down="sm">
               <div className="row">
                 <div className="col-sm-12 col-md-6 pl-2 pr-2">
-                  <Card showTag headline={`AUD 45`} title={`หม้อสุกี้บาร์บีคิวรุ่น Otto PG-155`} subtitle={`~1.4k from Melbourne CBD`} />
+                  <Card
+                    showTag
+                    headline={`AUD 45`}
+                    title={`หม้อสุกี้บาร์บีคิวรุ่น Otto PG-155`}
+                    subtitle={`~1.4k from Melbourne CBD`}
+                    thumbnail={`https://source.unsplash.com/random/220x160`}
+                  />
                 </div>
               </div>
             </MediaQuery>
@@ -106,7 +176,13 @@ class Home extends React.Component {
               <Sliders slidesToShow={3}>
                 {times(6, () => (
                   <div className="col pl-2 pr-2">
-                    <Card showTag headline={`AUD 45`} title={`หม้อสุกี้บาร์บีคิวรุ่น Otto PG-155`} subtitle={`~1.4k from Melbourne CBD`} />
+                    <Card
+                      showTag
+                      headline={`AUD 45`}
+                      title={`หม้อสุกี้บาร์บีคิวรุ่น Otto PG-155`}
+                      subtitle={`~1.4k from Melbourne CBD`}
+                      thumbnail={`https://source.unsplash.com/random/220x160`}
+                    />
                   </div>))}
               </Sliders>
             </MediaQuery>
@@ -114,7 +190,13 @@ class Home extends React.Component {
               <Sliders slidesToShow={4}>
                 {times(8, () => (
                   <div className="col-3 pl-2 pr-2">
-                    <Card showTag headline={`AUD 45`} title={`หม้อสุกี้บาร์บีคิวรุ่น Otto PG-155`} subtitle={`~1.4k from Melbourne CBD`} />
+                    <Card
+                      showTag
+                      headline={`AUD 45`}
+                      title={`หม้อสุกี้บาร์บีคิวรุ่น Otto PG-155`}
+                      subtitle={`~1.4k from Melbourne CBD`}
+                      thumbnail={`https://source.unsplash.com/random/220x160`}
+                    />
                   </div>
                 ))}
               </Sliders>

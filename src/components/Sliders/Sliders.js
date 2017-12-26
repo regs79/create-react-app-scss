@@ -1,9 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import cn from 'classnames'
 import styles from './Sliders.scss'
 import Slider from 'react-slick'
-import Icon from 'components/Icon'
 
 const NextArrow = ({
   className,
@@ -25,7 +23,6 @@ const PrevArrow = ({
   style,
   onClick,
 }) => {
-  console.log('style', style)
   const prevArrowProps = {
     className: cn(className, styles.prevArrow),
     style: {
@@ -36,9 +33,6 @@ const PrevArrow = ({
   return React.createElement('div', prevArrowProps)
 }
 
-// $container-m:                                   720px !default;
-// $container-l:                                   960px !default;
-// $container-xl:                                  1120px !default;
 export const Sliders = ({
   children,
   slidesToShow,

@@ -4,8 +4,9 @@ import PropTypes from 'prop-types'
 import SaveTo from 'components/SaveTo'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
-import Badge from 'components/Badge'
+// import Badge from 'components/Badge'
 import styles from './FeatureCard.scss'
+import LazyImage from 'components/LazyImage'
 
 export const FeatureCard = ({
   headline,
@@ -14,25 +15,24 @@ export const FeatureCard = ({
   subtitle,
   showTag,
   showPoster,
+  thumbnail,
 }) => {
-  const isShowPoster = showPoster === true
-  const isShowTag = showTag === true
   return (
     <div className={styles.card}>
       <div className={cn('card bg-light text-white rounded', styles.innderCard)}>
         <Link to="">
-          <img className="card-img" src={'https://source.unsplash.com/random/800x800'} alt="Card image" />
+          <LazyImage className="card-img" src={thumbnail} alt="Card image" defaultWidth={450} defaultHeight={450} />
         </Link>
         <SaveTo className={styles.saveTo} />
         <div className={cn('card-img-overlay rounded', styles.content)}>
           <div className="p-2">
             {
               (headline) &&
-              <p className={styles.title}>
+              <h3>
                 <Link to="" className="text-light">
-                  <h3>{headline}</h3>
+                  {headline}
                 </Link>
-              </p>
+              </h3>
             }
             {
               (subheadline) &&
