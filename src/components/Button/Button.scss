@@ -1,28 +1,63 @@
-@import "~styles/config/variables";
+@import "~styles/variables";
+@import "~styles/mixins";
 
-.container {
-  display: block;
+// Mixins
+@mixin disabled {
+  &:disabled,
+  &[disabled] {
+    opacity: .5;
+  }
 }
 
-.btn {
-  cursor: pointer;
-  min-width: 120px;
+@mixin border-background($border, $background: $border) {
+  border: 1px solid $border;
+  background-color: $background;
+}
 
-  &.primary {
-    color: white;
-    background-color: $blue;
-    border-color: $blue;
+// Button SCSS Variables
+$btn:
+  (primary, $primary),
+  (success, $success),
+  (danger, $danger),
+  (dark, $dark);
+
+// Button Styling
+.btn {
+  display: inline-block;
+  font-weight: 300;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  color: white;
+  cursor: pointer;
+
+  @each $btn-type, $color in $btn {
+    &.#{$btn-type} {
+      @include border-background($color);
+      @include hover-active($color);
+      @include disabled;
+    }
   }
 
   &.secondary {
-    color: $white;
-    background-color: $grey;
-    border-color: $grey;
+    color: $grey-500;
+    @include border-background($grey, $white);
+    @include hover-active($white);
+    @include disabled;
   }
 
-  &.default {
-    color: $black;
-    background-color: $white;
-    border-color: $grey;
+  &.spinner {
+    padding: .13rem 2.1rem;
+    .spinnerIcon {
+      position: relative;
+      top: 2px;
+    }
   }
+
 }

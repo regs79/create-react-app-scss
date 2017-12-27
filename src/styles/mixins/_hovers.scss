@@ -1,0 +1,8 @@
+@mixin hover-active($main-color, $amount: 5) {
+  &:hover {
+    background-color: darken($main-color, $amount);
+  }
+  &:active {
+    background-color: darken($main-color, ($amount * 2));
+  }
+}
