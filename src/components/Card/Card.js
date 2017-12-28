@@ -23,7 +23,7 @@ export const Card = ({
     <div className={styles.card}>
       <div className={cn('card bg-light text-white rounded', styles.innderCard)}>
         <Link to="" className={styles.cover}>
-          <LazyImage className="card-img" src={thumbnail} alt="Card image" />
+          <img className="card-img" src={thumbnail} alt="Card image" />
         </Link>
         <SaveTo className={styles.saveTo} />
         <div className={cn('card-img-overlay rounded', styles.content)}>
