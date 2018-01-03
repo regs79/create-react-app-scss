@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 import { applyMiddleware, createStore, compose } from 'redux'
 import rootReducers from 'reducers'
 import thunk from 'redux-thunk'

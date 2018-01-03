@@ -1,6 +1,6 @@
 import {
   handleActions,
-  createAction,
+  // createAction,
   // handleAction
 } from 'redux-actions'
 
@@ -17,6 +17,6 @@ const appReducer = handleActions({
       counter,
     }
   },
-}, defaultState);
+}, defaultState)
 
 export default appReducer

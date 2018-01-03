@@ -3,5 +3,5 @@ import AuthAction from './AuthAction'
 
 export {
   AppAction,
-  AuthAction
+  AuthAction,
 }

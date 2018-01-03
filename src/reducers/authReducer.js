@@ -4,7 +4,7 @@ const initialState = {
   isFetching: false,
   isAuthenticated: false,
   token: {},
-  user: {}
+  user: {},
 }
 
 const appReducer = handleActions({
@@ -35,6 +35,6 @@ const appReducer = handleActions({
       isAuthenticated,
     })
   },
-}, initialState);
+}, initialState)
 
 export default appReducer

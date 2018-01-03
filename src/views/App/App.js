@@ -1,5 +1,9 @@
+/* eslint-disable */
+
 import React from 'react';
 import PropTypes from 'prop-types'
+
+import Navbar from 'components/Navbar'
 
 class App extends React.Component {
 
@@ -16,6 +20,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <Navbar />
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
             return React.cloneElement(child)

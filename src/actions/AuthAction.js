@@ -27,21 +27,21 @@ export const getUserAccess = () => {
   return (dispatch) => {
     dispatch(loginReqest())
     const config = {
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json',
-      'x-access-token': 'L9w5b1N919h1d2lr2E4HIc36sQd2qkly'
+      'x-access-token': 'L9w5b1N919h1d2lr2E4HIc36sQd2qkly',
     }
     const request = axios.get('/api/auth', { headers: config })
     request.then((response) => {
       const { success, token, username } = response.data
-      if(success) {
+      if (success) {
         const user = {
           token,
-          username
+          username,
         }
         dispatch(loginSuccess({ user }))
       }
-    }).catch((err) => {
+    }).catch(() => {
       dispatch(loginError())
     })
   }
