@@ -1,9 +1,9 @@
 /* eslint-disable */
-
 import React from 'react';
 import PropTypes from 'prop-types'
 
-import Navbar from 'components/Navbar'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
 
 class App extends React.Component {
 
@@ -20,12 +20,13 @@ class App extends React.Component {
 
     return (
       <div>
-        <Navbar />
+        <Header />
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
             return React.cloneElement(child)
           }
         })}
+        <Footer />
       </div>
     );
   }

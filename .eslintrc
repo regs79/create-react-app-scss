@@ -23,6 +23,7 @@
   },
   "rules": {
     "arrow-body-style": ["off"],
+    "jsx-a11y/label-has-for": ["off"],
     "arrow-parens": ["error", "as-needed", { "requireForBlockBody": true }],
     "curly": ["error", "all"],
     "global-require": ["off"],
