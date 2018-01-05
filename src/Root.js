@@ -7,6 +7,8 @@ import store from './store'
 // Components
 import App from 'containers/App'
 import Home from 'containers/Home'
+import Login from 'containers/Login'
+import Create from 'containers/Create'
 
 class Root extends Component {
   render() {
@@ -16,6 +18,8 @@ class Root extends Component {
           <App>
             <Switch>
               <Route exact path='/' component={Home}/>
+              <Route path='/user' component={Login}/>
+              <Route path='/create' component={Create}/>
             </Switch>
           </App>
         </BrowserRouter>

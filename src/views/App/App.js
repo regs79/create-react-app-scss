@@ -1,47 +1,44 @@
-/* eslint-disable */
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 
 class App extends React.Component {
-
-  constructor(props) {
-    super(props)
-  }
-
   componentWillMount() {
     console.log(this.props)
   }
 
   render() {
-    const { children } = this.props
+    const { location, children } = this.props
+    const isHome = location.pathname === '/'
 
     return (
       <div>
-        <Header />
+        <Header
+          isHome={isHome}
+        />
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
             return React.cloneElement(child)
           }
+          return null
         })}
-        <Footer />
+        <Footer
+          isHome={isHome}
+        />
       </div>
-    );
+    )
   }
 }
 
 App.propTypes = {
   children: PropTypes.node.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
-  getUserAccess: PropTypes.func,
+  location: PropTypes.object,
 }
 
 App.defaultProps = {
-  children: null,
-  isAuthenticated: false,
-  getUserAccess: null,
+  location: {},
 }
 
 export default App

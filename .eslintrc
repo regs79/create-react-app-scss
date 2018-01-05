@@ -22,6 +22,9 @@
     },
   },
   "rules": {
+    "jsx-a11y/anchor-is-valid": ["off"],
+    "react/no-unescaped-entities": ["off"],
+    "class-methods-use-this": ["off"],
     "arrow-body-style": ["off"],
     "jsx-a11y/label-has-for": ["off"],
     "arrow-parens": ["error", "as-needed", { "requireForBlockBody": true }],

@@ -3,9 +3,5 @@
 @import "~styles/mixins";
 
 .container {
-  display: block;
-
-  .nav {
-    background: $primary;
-  }
+  background-color: $gray-200;
 }

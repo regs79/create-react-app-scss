@@ -3,5 +3,18 @@
 @import "~styles/mixins";
 
 .header {
-  
+  display: block;
+
+  .navbarhomepage {
+    background-color: $primary;
+  }
+
+  .navbarnormal {
+    background-color: $white;
+  }
+
+  .lang {
+    position: relative;
+    top: 1px;
+  }
 }
