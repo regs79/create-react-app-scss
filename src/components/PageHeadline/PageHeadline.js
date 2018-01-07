@@ -21,7 +21,7 @@ const PageHeadline = ({
         </Link>
       </div>
       <div className="d-flex align-items-center">
-        <h4>{title}</h4>
+        <h4 className="m-0 text-center">{title}</h4>
       </div>
       {(showHelp) &&
         <div className="d-flex align-items-center">

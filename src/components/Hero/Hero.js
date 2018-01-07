@@ -16,11 +16,15 @@ export const Hero = () => {
           <p className="lead">Find answers, support, and inspiration from other Atlassian users</p>
         </div>
       </div>
-      <div className={cn('p-4', styles.register)}>
-        <div className="container">
-          <div className="d-flex justify-content-between">
-            <p className="lead m-0 d-flex align-items-center">Its not the same without you!</p>
-            <Link to="/user" className="btn btn-warning">Sign up for free</Link>
+      <div className={cn('p-3 p-m-4', styles.register)}>
+        <div className="view-container">
+          <div className="d-flex">
+            <div className="col-6 p-0 d-flex justify-content-start align-self-center">
+              <p className={cn('lead m-0 d-flex align-items-center', styles.lead)}>Its not the same without you!</p>
+            </div>
+            <div className="col-6 p-0 d-flex justify-content-end align-self-center">
+              <Link to="/user" className="btn btn-warning">Join us for free</Link>
+            </div>
           </div>
         </div>
       </div>

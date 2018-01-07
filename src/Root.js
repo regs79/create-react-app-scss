@@ -9,6 +9,7 @@ import App from 'containers/App'
 import Home from 'containers/Home'
 import Login from 'containers/Login'
 import Create from 'containers/Create'
+import Story from 'containers/Story'
 
 class Root extends Component {
   render() {
@@ -20,6 +21,7 @@ class Root extends Component {
               <Route exact path='/' component={Home}/>
               <Route path='/user' component={Login}/>
               <Route path='/create' component={Create}/>
+              <Route path='/stories/:story_id' component={Story}/>
             </Switch>
           </App>
         </BrowserRouter>

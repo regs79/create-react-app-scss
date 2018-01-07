@@ -1,0 +1,45 @@
+@import "~styles/functions";
+@import "~styles/variables";
+@import "~styles/mixins";
+
+.cardstorycontainer {
+  display: block;
+  padding: 6px 0;
+
+  &:hover
+  .spanbtn {
+    background: $gray-200;
+  }
+}
+
+.spanbtn {
+  @include media-breakpoint-down(md) {
+    background: $gray-200;
+  }
+  padding: 0 6px;
+  cursor: pointer;
+  display: inline-flex;
+  border-radius: 100%;
+}
+
+.photo {
+  img {
+    max-width: 40px !important;
+  }
+}
+
+.figure {
+  @include media-breakpoint-down(md) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: ($grid-gutter-width - 38);
+    margin-left: ($grid-gutter-width - 38);
+
+    figcaption {
+      font-size: 100%;
+    }
+  }
+}
+
+.userprofile {
+}

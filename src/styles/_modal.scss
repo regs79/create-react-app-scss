@@ -166,3 +166,7 @@
 @include media-breakpoint-up(lg) {
   .modal-lg { max-width: $modal-lg; }
 }
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}

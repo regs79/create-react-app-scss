@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import cn from 'classnames'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 
@@ -11,12 +12,21 @@ class App extends React.Component {
 
   render() {
     const { location, children } = this.props
-    const isHome = location.pathname === '/'
+    const isHome = () => {
+      if (location.pathname.indexOf('create') !== -1 || location.pathname.indexOf('user') !== -1) {
+        return false
+      }
+      return true
+    }
+
+    const background = cn({
+      'bg-bluelight': location.pathname.indexOf('stories') !== -1,
+    })
 
     return (
-      <div>
+      <div className={cn(background)}>
         <Header
-          isHome={isHome}
+          isHome={isHome()}
         />
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
@@ -25,7 +35,7 @@ class App extends React.Component {
           return null
         })}
         <Footer
-          isHome={isHome}
+          isHome={isHome()}
         />
       </div>
     )

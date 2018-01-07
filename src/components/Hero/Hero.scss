@@ -9,3 +9,9 @@
 .register {
   background-color: $gray-100;
 }
+
+.lead {
+  @include media-breakpoint-down(sm) {
+    font-size: $font-size-base !important;
+  }
+}

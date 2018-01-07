@@ -2,13 +2,12 @@
 @import "~styles/variables";
 @import "~styles/mixins";
 
-
 .icon {
   position: relative;
 }
 
 .label {
   position: relative;
-  font-size: initial;
+  font-size: $font-size-base;
   font-style: normal;
 }

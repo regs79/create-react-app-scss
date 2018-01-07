@@ -31,8 +31,9 @@ export const MediaQuery = ({ ...rest, children }) => {
       }
     }
   }
+
   return (
-    <Responsive {...responsiveProps.reduce(d => d)}>
+    <Responsive {...responsiveProps.reduce(d => d)} className={rest.className} component={rest.component}>
       {React.createElement('div', {} ,
         React.Children.map(children, (child) => React.cloneElement(child))
       )}

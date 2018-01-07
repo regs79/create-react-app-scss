@@ -17,4 +17,10 @@
     position: relative;
     top: 1px;
   }
+
+  .searchform {
+    border: none;
+    border-radius: 2px;
+    box-shadow: inset 1px 2px 1px 0px rgba(145, 144, 144, 0.37);
+  }
 }

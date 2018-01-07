@@ -1,9 +1,13 @@
-import faker from 'faker'
+// import faker from 'faker'
 import React from 'react'
 // import PropTypes from 'prop-types'
-import cn from 'classnames'
+
+// import { Link } from 'react-router-dom'
+
+// import cn from 'classnames'
 import times from 'lodash/times'
 import Hero from 'components/Hero'
+import CardActivity from 'components/CardActivity'
 
 class Home extends React.Component {
   constructor(props) {
@@ -17,51 +21,16 @@ class Home extends React.Component {
         <h5>Trending activity</h5>
         <div className="mt-4">
           <div className="row">
-            <div className="col">
+            <div className="col-12 col-md-9">
               {
-                times(20, (key) => {
+                times(20, () => {
                   return (
-                    <div className="row no-gutters mb-4" key={key}>
-                      <div className={cn({
-                        'col-2': key <= 2,
-                        'col-1': key > 2,
-                      })}
-                      >
-                        <img
-                          className="img-thumbnail"
-                          src={faker.image.imageUrl()}
-                          alt="Generic placeholder"
-                        />
-                      </div>
-                      <div className="col">
-                        <div className="row no-gutters">
-                          <div className="col-12 pl-3">
-                            <h5>{faker.lorem.sentence()}</h5>
-                          </div>
-                          <div className="col-12 pl-3">
-                            <ul className="list-inline m-0">
-                              <li className="list-inline-item">231 views</li>
-                              <li className="list-inline-item">27</li>
-                              <li className="list-inline-item">4</li>
-                              <li className="list-inline-item">Tawan</li>
-                              <li className="list-inline-item">Thursday</li>
-                            </ul>
-                          </div>
-                          <div className="col-12 pl-3">
-                            <ul className="list-inline m-0">
-                              <li className="list-inline-item"><span className="badge badge-pill badge-primary">Primary</span></li>
-                              <li className="list-inline-item"><span className="badge badge-pill badge-secondary">Secondary</span></li>
-                              <li className="list-inline-item"><span className="badge badge-pill badge-warning">Warning</span></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <CardActivity />
                   )
                 })
               }
             </div>
-            <div className="col-3">
+            <div className="col-12 col-md-3">
               SIDEBAR
             </div>
           </div>
@@ -85,9 +54,9 @@ class Home extends React.Component {
     return (
       <section className="mt-4">
         <h5>Feature Articles</h5>
-        <div className="mt-4">
-          <div className="row mb-4">
-            <div className="col-5">
+        <div className="mt-2">
+          <div className="row">
+            <div className="col-12 col-md-5 p-3">
               <div className="card">
                 <img
                   className="card-img-top"
@@ -103,12 +72,12 @@ class Home extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="col-7">
+            <div className="col-12 col-md-7 mt-md-0">
               <div className="row">
                 {
                   times(4, (key) => {
                     return (
-                      <div className="col-6 mb-4" key={key}>
+                      <div className="col-6 p-3" key={key}>
                         <div className="card">
                           <img
                             className="card-img-top"
