@@ -2,9 +2,23 @@ import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import store from './store'
+import routes from './routes'
+import { asyncComponent } from 'shared/Async';
+
 // Components
-import App from 'containers/App'
-import Home from 'containers/Home'
+const App = asyncComponent({
+  resolve: () => new Promise(resolve =>
+    // Webpack's code splitting API w/naming
+    require.ensure(
+      [],
+      (require) => {
+        resolve(require('containers/App'));
+      },
+      'App'
+    )
+  )
+})
+
 
 class Root extends Component {
   render() {
@@ -13,7 +27,7 @@ class Root extends Component {
         <BrowserRouter>
           <App>
             <Switch>
-              <Route exact path='/' component={Home}/>
+              {routes.map((route, key) => <Route key={key} {...route} />)}
             </Switch>
           </App>
         </BrowserRouter>

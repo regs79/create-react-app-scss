@@ -1,19 +1,41 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Modal from 'components/Modal'
-import IssueRefund from 'views/Home/components/IssueRefund'
 import Button from 'components/Button'
 import Text from 'components/Text'
+
+import { refundsData } from 'fixtures/refunds'
+import { issuessData } from 'fixtures/issuess'
+
+// Components loader
+import { asyncComponent } from 'shared/Async'
+const IssueRefund = asyncComponent({
+  resolve: () => new Promise(resolve =>
+    // Webpack's code splitting API w/naming
+    require.ensure(
+      [],
+      (require) => {
+        resolve(require('modules/IssueRefund'));
+      },
+      'Modules-IssueRefund'
+    )
+  )
+})
 
 class Home extends React.Component {
 
   constructor(props){
   	super(props);
   	this.state = {
+      hasError: false,
       modal: false,
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this)
+  }
+
+  componentDidCatch(error, info) {
+    this.setState({ hasError: true });
   }
 
   handleOpenModal() {
@@ -25,7 +47,6 @@ class Home extends React.Component {
   }
 
   render() {
-    const { refundsData, issuessData } = this.props
     const { modal } = this.state
     const issueRefundModalProps = {
       fluid: true,
