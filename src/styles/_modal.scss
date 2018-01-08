@@ -169,4 +169,7 @@
 
 .ReactModal__Body--open {
   overflow: hidden;
+  #root {
+    display: none;
+  }
 }

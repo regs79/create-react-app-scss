@@ -1,6 +1,8 @@
 /* eslint-disable */
 import React from 'react'
+import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
+import cn from 'classnames'
 import {
   Editor,
   EditorState,
@@ -19,9 +21,11 @@ import Link from './components/Link'
 import EntityControls from './components/EntityControls'
 import InlineStyleControls from './components/InlineStyleControls'
 import BlockStyleControls from './components/BlockStyleControls'
+import Controls from './components/Controls'
 import findEntities from './utils/findEntities'
+import styles from './EditorTool.scss'
 
-export default class EditorTool extends React.Component {
+class EditorTool extends React.Component {
   constructor(props) {
     super(props)
     let { value } = props
@@ -41,19 +45,19 @@ export default class EditorTool extends React.Component {
     this.INLINE_STYLES = [
       {label: 'Bold', style: 'BOLD'},
       {label: 'Italic', style: 'ITALIC'},
-      {label: 'Underline', style: 'UNDERLINE'},
-      {label: 'Monospace', style: 'CODE'},
-      {label: 'Strikethrough', style: 'STRIKETHROUGH'}
+      // {label: 'Underline', style: 'UNDERLINE'},
+      // {label: 'Monospace', style: 'CODE'},
+      // {label: 'Strikethrough', style: 'STRIKETHROUGH'}
     ]
 
     this.BLOCK_TYPES = [
       {label: 'P', style: 'unstyled'},
-      {label: 'H1', style: 'header-one'},
-      {label: 'H2', style: 'header-two'},
-      {label: 'Blockquote', style: 'blockquote'},
+      // {label: 'H1', style: 'header-one'},
+      // {label: 'H2', style: 'header-two'},
+      // {label: 'Blockquote', style: 'blockquote'},
       {label: 'UL', style: 'unordered-list-item'},
-      {label: 'OL', style: 'ordered-list-item'},
-      {label: 'Code Block', style: 'code-block'}
+      // {label: 'OL', style: 'ordered-list-item'},
+      // {label: 'Code Block', style: 'code-block'}
     ]
 
     this.state = {
@@ -167,35 +171,34 @@ export default class EditorTool extends React.Component {
   }
 
   render() {
-    const {editorState} = this.state
-
-    // If the user changes block type before entering any text, we can
-    // either style the placeholder or hide it. Let's just hide it now.
-    let className = 'editor-editor'
-    var contentState = editorState.getCurrentContent()
-    if (!contentState.hasText()) {
-      if (contentState.getBlockMap().first().getType() !== 'unstyled') {
-        className += ' editor-hidePlaceholder'
+    const { className } = this.props
+    const { editorState } = this.state
+    const contentState = editorState.getCurrentContent()
+    const isHasText = () => {
+      if (!contentState.hasText()) {
+        if (contentState.getBlockMap().first().getType() !== 'unstyled') {
+          return true
+        }
       }
+      return false
     }
 
+    const placeholderLabel = !isHasText() ? "Tell a story..." : null
+
     return (
-      <div className="editor-root draftjs-bhe">
-        <BlockStyleControls
+      <div className={styles.root}>
+        <Controls
           editorState={editorState}
-          blockTypes={this.BLOCK_TYPES}
-          onToggle={this.toggleBlockType}
+          blocks={{
+            blockTypes: this.BLOCK_TYPES,
+            onToggle: this.toggleBlockType,
+          }}
+          inline={{
+            onToggle: this.toggleInlineStyle,
+            inlineStyles: this.INLINE_STYLES,
+          }}
         />
-        <InlineStyleControls
-          editorState={editorState}
-          onToggle={this.toggleInlineStyle}
-          inlineStyles={this.INLINE_STYLES}
-        />
-        <EntityControls
-          editorState={editorState}
-          entityControls={this.ENTITY_CONTROLS}
-        />
-        <div className={className} /* onClick={this.focus} */>
+        <div className={cn('m-2', styles.editor, className.editor.className)} onClick={this.focus} style={className.editor.styles}>
           <Editor
             blockStyleFn={getBlockStyle}
             customStyleMap={styleMap}
@@ -203,7 +206,7 @@ export default class EditorTool extends React.Component {
             handleKeyCommand={this.handleKeyCommand}
             handleReturn={this.handleReturn}
             onChange={this.onChange}
-            placeholder="Tell a story..."
+            placeholder={placeholderLabel}
             ref="editor"
             spellCheck={true}
           />
@@ -211,6 +214,23 @@ export default class EditorTool extends React.Component {
       </div>
     )
   }
+}
+
+EditorTool.propTypes = {
+  className: PropTypes.shape({
+    editor: PropTypes.shape({
+      className: null,
+      editor: null,
+    })
+  })
+}
+
+EditorTool.defaultProps = {
+  className: {
+    editor: {
+      className: null
+    },
+  },
 }
 
 // Custom overrides for "code" style.
@@ -229,3 +249,5 @@ function getBlockStyle(block) {
     default: return null
   }
 }
+
+export default EditorTool

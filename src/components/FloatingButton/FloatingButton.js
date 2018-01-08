@@ -21,7 +21,7 @@ export const FloatingButton = ({
       <Icon
         className={styles.icon}
         icon="ion-android-add-circle"
-        size={50}
+        size={60}
       />
     </button>
   )

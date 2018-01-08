@@ -1,8 +1,8 @@
+/* eslint-disable */
 // import faker from 'faker'
 import React from 'react'
 // import PropTypes from 'prop-types'
 // import { Link } from 'react-router-dom'
-
 // import Icon from 'components/Icon'
 import CardStory from 'components/CardStory'
 import StoryBox from 'components/StoryBox'
@@ -13,6 +13,7 @@ import FloatingButton from 'components/FloatingButton'
 import EditorWrapper from 'components/EditorWrapper'
 import Modal from 'components/Modal'
 import ModalWrapper from 'components/ModalWrapper'
+import Portal from 'components/Portal'
 // import Section from 'components/Section'
 // import times from 'lodash/times'
 
@@ -24,8 +25,19 @@ class Story extends React.Component {
         editor: false,
       },
     }
-
     this.handleModal = this.handleModal.bind(this)
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextState.modal.editor !== this.state.modal.editor) {
+      return true
+    }
+
+    if (nextState.isShowPaging !== this.state.isShowPaging) {
+      return true
+    }
+
+    return false
   }
 
   handleModal(modalId) {
@@ -41,6 +53,7 @@ class Story extends React.Component {
   render() {
     const {
       modal,
+      isShowPaging,
     } = this.state
 
     return (
@@ -52,7 +65,14 @@ class Story extends React.Component {
               <li className="breadcrumb-item"><Link to="/" className="text-muted">Travel</Link></li>
             </ol>
           </nav> */}
-          <Paging />
+          <MediaQuery down="md">
+            <Paging
+              isBottomFixed={true}
+            />
+          </MediaQuery>
+          <MediaQuery up="lg">
+            <Paging />
+          </MediaQuery>
           <div className="row min-height-vh-75">
             <div className="col-12 no-padding-sm">
               <div className="d-flex no-padding-md">

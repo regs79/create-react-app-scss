@@ -1,5 +1,7 @@
 /* eslint-disable */
-import React from 'react';
+import React from 'react'
+import cn from 'classnames'
+import styles from '../EditorTool.scss'
 
 export default class StyleButton extends React.Component {
   constructor() {
@@ -11,15 +13,16 @@ export default class StyleButton extends React.Component {
   }
 
   render() {
-    let className = 'editor-styleButton';
-    if (this.props.active) {
-      className += ' editor-activeButton';
+    const { label } = this.props
+    let stylesClasses = cn('col text-center', {
+      [styles.active]: this.props.active,
+      'bg-primary text-light': this.props.active,
+    })
+    const styleButtonProps = {
+      className: stylesClasses,
+      onMouseDown: this.onToggle,
     }
 
-    return (
-      <span className={className} onMouseDown={this.onToggle}>
-        {this.props.label}
-      </span>
-    );
+    return React.createElement('span', styleButtonProps, label)
   }
 }

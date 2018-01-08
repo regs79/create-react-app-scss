@@ -6,16 +6,23 @@ import EditorTool from 'components/EditorTool'
 // import cn from 'classnames'
 // import styles from './EditorWrapper.scss'
 let html = `
-  <h1>This is a Title</h1>
-  <p>Here's some text, it's useful</p>
-  <p>More text, some inline <strong>styling</strong> for <em>some</em> elements</p>
+  <strong>Hello world</strong>
+  <p>This is example text</p>
+  <p>Another line of example</p>
+  <ul>
+    <li>Example of listing #1</li>
+    <li>Example of listing #2</li>
+    <li>Example of listing #3</li>
+  </ul>
+  <p>Back to normal text</p>
+  <i>Haha, this is so fun!</i>
 `
 
 class EditorWrapper extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      html: props.html,
+      html: html,
     }
   }
 
@@ -27,11 +34,13 @@ class EditorWrapper extends React.Component {
 
   render() {
     return (
-      <EditorTool
-        value={ this.state.html }
-        onChange={ (html) => this.updateHtml(html) }
-        debounce={ 500 }
-      />
+      <div className="d-flex align-items-start flex-column">
+        <EditorTool
+          value={ this.state.html }
+          onChange={ (html) => this.updateHtml(html) }
+          debounce={ 500 }
+        />
+      </div>
     )
   }
 }

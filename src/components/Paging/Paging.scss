@@ -2,8 +2,14 @@
 @import "~styles/variables";
 @import "~styles/mixins";
 
+.pagination {
+  display: block;
+  &.closed {
+    display: none;
+  }
+}
 .paging {
-  @include media-breakpoint-down(sm) {
+  &.mobile {
     border-top: 1px solid $gray-300;
     position: fixed;
     z-index: 3000;
