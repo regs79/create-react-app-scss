@@ -5,7 +5,7 @@ import cn from 'classnames'
 import { REFUND_TYPES, CANCEL_TYPES } from 'constants/refunds'
 import { dropdownLists } from 'utils/dropdown'
 import findIndex from 'lodash/findIndex'
-
+import Modal from 'components/Modal'
 // Components
 import AlertMessage from 'components/AlertMessage'
 import BasicTable from 'components/BasicTable'
@@ -119,6 +119,7 @@ class IssueRefund extends React.Component {
 
   render() {
     const {
+      modal,
       basicTable,
     } = this.props
 
@@ -147,88 +148,90 @@ class IssueRefund extends React.Component {
     }
 
     return (
-      <div className={styles.container}>
-        <AlertMessage {...alertMessageProps} />
-        <BasicTable {...BasicTableProps} />
-        <Text h1>Please select items to refund</Text>
-        <table className="table">
-          <thead className={styles.tableHead}>
-            <tr>
-              <th scope="col" style={{ width: 250 }}>ITEMS</th>
-              <th scope="col" style={{ width: 100 }}>PRICE</th>
-              <th scope="col" style={{ width: 250 }}>REFUND AMOUNT</th>
-              <th scope="col">CANCEL MEMBERSHIP</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              data.map((issues, key) => {
-                const isDisabled = issues.disabled
-                const disabledMsg = issues.disabledMsg
-                const refundAmountDropdownProps = {
-                  data: issues,
-                  options: this.dropdownRefundContent(issues.refundTypes),
-                  handleOnClick: this.handleOnClickRefundAmount,
-                }
-                const cancelMembershipDropdownProps = {
-                  data: issues,
-                  options: this.dropdownCancelMembershipContent(issues.cancelTypes),
-                  handleOnClick: this.handleOnClickCancelMembership,
-                }
-
-                const checkboxProps = {
-                  id: issues.id,
-                  isChecked: issues.isChecked === true,
-                  label: issues.name,
-                  onClick: (!isDisabled) ? this.handleCheckboxOnClick : null,
-                }
-
-                const partialInputProps = Object.assign({}, normalInputProps, {
-                  id: issues.id,
-                  value: 0,
-                  placeholder: '',
-                  style: {
-                    width: 70,
+      <Modal {...modal}>
+        <div className={styles.container}>
+          <AlertMessage {...alertMessageProps} />
+          <BasicTable {...BasicTableProps} />
+          <Text h1>Please select items to refund</Text>
+          <table className="table">
+            <thead className={styles.tableHead}>
+              <tr>
+                <th scope="col" style={{ width: 250 }}>ITEMS</th>
+                <th scope="col" style={{ width: 100 }}>PRICE</th>
+                <th scope="col" style={{ width: 250 }}>REFUND AMOUNT</th>
+                <th scope="col">CANCEL MEMBERSHIP</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                data.map((issues, key) => {
+                  const isDisabled = issues.disabled
+                  const disabledMsg = issues.disabledMsg
+                  const refundAmountDropdownProps = {
+                    data: issues,
+                    options: this.dropdownRefundContent(issues.refundTypes),
+                    handleOnClick: this.handleOnClickRefundAmount,
                   }
+                  const cancelMembershipDropdownProps = {
+                    data: issues,
+                    options: this.dropdownCancelMembershipContent(issues.cancelTypes),
+                    handleOnClick: this.handleOnClickCancelMembership,
+                  }
+
+                  const checkboxProps = {
+                    id: issues.id,
+                    isChecked: issues.isChecked === true,
+                    label: issues.name,
+                    onClick: (!isDisabled) ? this.handleCheckboxOnClick : null,
+                  }
+
+                  const partialInputProps = Object.assign({}, normalInputProps, {
+                    id: issues.id,
+                    value: 0,
+                    placeholder: '',
+                    style: {
+                      width: 70,
+                    }
+                  })
+
+                  const isPartialSelected = (issues.isRefunded === REFUND_TYPES.partial)
+
+                  return (
+                    <tr key={key} id={issues.id} className={cn({ [styles.disabled]: isDisabled })}>
+                      <th scope="row">
+                        <Checkbox {...checkboxProps} />
+                      </th>
+                      <td><Text span>{issues.amount}</Text></td>
+                      {(isDisabled) &&
+                        <td colSpan={2}>
+                          <Text span>{disabledMsg}</Text>
+                        </td>
+                      }
+                      {(!isDisabled) &&
+                        <td>
+                          <Dropdown {...refundAmountDropdownProps} />
+                          {(isPartialSelected) && <InputLight {...partialInputProps} />}
+                        </td>
+                      }
+                      {(!isDisabled) &&
+                        <td>
+                          <Dropdown {...cancelMembershipDropdownProps} />
+                        </td>
+                      }
+                    </tr>
+                  )
                 })
-
-                const isPartialSelected = (issues.isRefunded === REFUND_TYPES.partial)
-
-                return (
-                  <tr key={key} id={issues.id} className={cn({ [styles.disabled]: isDisabled })}>
-                    <th scope="row">
-                      <Checkbox {...checkboxProps} />
-                    </th>
-                    <td><Text span>{issues.amount}</Text></td>
-                    {(isDisabled) &&
-                      <td colSpan={2}>
-                        <Text span>{disabledMsg}</Text>
-                      </td>
-                    }
-                    {(!isDisabled) &&
-                      <td>
-                        <Dropdown {...refundAmountDropdownProps} />
-                        {(isPartialSelected) && <InputLight {...partialInputProps} />}
-                      </td>
-                    }
-                    {(!isDisabled) &&
-                      <td>
-                        <Dropdown {...cancelMembershipDropdownProps} />
-                      </td>
-                    }
-                  </tr>
-                )
-              })
-            }
-          </tbody>
-        </table>
-        <div style={{ display: 'block' }}>
-          <Text span>Refund reason</Text>
-          <div>
-            <InputLight placeholder="Comment" />
+              }
+            </tbody>
+          </table>
+          <div style={{ display: 'block' }}>
+            <Text span>Refund reason</Text>
+            <div>
+              <InputLight placeholder="Comment" />
+            </div>
           </div>
         </div>
-      </div>
+      </Modal>
     );
   }
 }

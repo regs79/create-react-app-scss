@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Modal from 'components/Modal'
 import Button from 'components/Button'
 import Text from 'components/Text'
 
@@ -71,9 +69,7 @@ class Home extends React.Component {
           </Button>
         </div>
         {(modal) &&
-          <Modal {...issueRefundModalProps}>
-            <IssueRefund {...issueRefundProps} />
-          </Modal>
+          <IssueRefund {...issueRefundProps} modal={issueRefundModalProps} />
         }
       </div>
     );
