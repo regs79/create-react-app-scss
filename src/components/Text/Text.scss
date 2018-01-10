@@ -1,0 +1,20 @@
+@import "~styles/config/variables";
+@import "~styles/config/mixin";
+
+.container {
+  display: block;
+}
+
+.h1 {
+  @include fontSize(1.1, 2);
+  color: $darkblue;
+}
+
+.span {
+  margin: 0px;
+  padding: 0px;
+}
+
+.p {
+  font-size: $font-default
+}
