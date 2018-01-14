@@ -5,10 +5,11 @@
 .floatingbutton {
   position: fixed;
   z-index: 3;
-  bottom: 5%;
+  bottom: 10%;
   right: 5%;
 
   .icon {
-    color: $pink;
+    background: $warning;
+    border-radius: 100%;
   }
 }

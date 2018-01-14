@@ -5,9 +5,10 @@ import styles from './StoryBox.scss'
 
 export const StoryBox = ({
   children,
+  className,
 }) => {
   return (
-    <div className={cn('col mb-3 p-2', styles.storybox)}>
+    <div className={cn(styles.storybox, className)}>
       {children}
     </div>
   )
@@ -15,9 +16,11 @@ export const StoryBox = ({
 
 StoryBox.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 }
 
 StoryBox.defaultProps = {
+  className: null,
 }
 
 export default StoryBox

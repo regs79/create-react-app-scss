@@ -1,0 +1,9 @@
+@import "~styles/functions";
+@import "~styles/variables";
+@import "~styles/mixins";
+
+.storyview {
+  @include media-breakpoint-up(lg) {
+    // margin: -50px auto;
+  }
+}

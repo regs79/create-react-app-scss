@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 import styles from './FloatingButton.scss'
-import Icon from 'components/Icon'
+// import Icon from 'components/Icon'
+import svg from './FloatingButton.svg'
 
 export const FloatingButton = ({
   handleFloatingOnClick,
@@ -18,11 +19,12 @@ export const FloatingButton = ({
       onClick={handleOnClose}
       type="button"
     >
-      <Icon
+      {/* <Icon
         className={styles.icon}
         icon="ion-android-add-circle"
         size={60}
-      />
+      /> */}
+      <img src={svg} alt="Button" className={styles.icon} />
     </button>
   )
 }

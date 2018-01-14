@@ -7,7 +7,7 @@ import PageHeadline from 'components/PageHeadline'
 // SVG icon
 import svgQuestion from 'assets/images/icons/question.svg'
 import svgReview from 'assets/images/icons/review1.svg'
-import svgMarket from 'assets/images/icons/cart.svg'
+// import svgMarket from 'assets/images/icons/cart.svg'
 
 class Create extends React.Component {
   render() {
@@ -31,13 +31,13 @@ class Create extends React.Component {
               title="Write a story"
             />
           </div>
-          <div className="col-sm-12 col-md-4 mb-4">
+          {/* <div className="col-sm-12 col-md-4 mb-4">
             <Box
               image={svgMarket}
               subtitle="Want to Sell & Buy stuffs?, We might could help you"
               title="Sell a thing"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     )

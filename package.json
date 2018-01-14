@@ -68,6 +68,7 @@
     "jshint": "^2.9.5",
     "lodash": "^4.16.1",
     "method-override": "^2.3.10",
+    "moment-range": "^3.1.0",
     "morgan": "^1.9.0",
     "node-sass": "^4.5.3",
     "node-sass-chokidar": "^0.0.3",

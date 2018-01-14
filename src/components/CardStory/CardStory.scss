@@ -4,8 +4,6 @@
 
 .cardstorycontainer {
   display: block;
-  padding: 6px 0;
-
   &:hover
   .spanbtn {
     background: $gray-200;
@@ -29,12 +27,18 @@
 }
 
 .figure {
-  @include media-breakpoint-down(md) {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: ($grid-gutter-width - 38);
-    margin-left: ($grid-gutter-width - 38);
+  width: 100%;
+  text-align: center;
 
+  .figureImage {
+    width: 100%;
+  }
+
+  @include media-breakpoint-down(md) {
+    // display: flex;
+    // flex-wrap: wrap;
+    // margin-right: ($grid-gutter-width - 38);
+    // margin-left: ($grid-gutter-width - 38);
     figcaption {
       font-size: 100%;
     }

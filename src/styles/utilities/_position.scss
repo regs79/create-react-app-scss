@@ -10,6 +10,15 @@ $positions: static, relative, absolute, fixed, sticky;
 }
 
 // Shorthand
+.fixed-md-top {
+  @include media-breakpoint-up(md) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: $zindex-fixed;
+  }
+}
 
 .fixed-top {
   position: fixed;

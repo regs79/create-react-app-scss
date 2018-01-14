@@ -3317,7 +3317,7 @@ tbody.collapse.show {
   .list-group-item-action:focus, .list-group-item-action:hover {
     color: #495057;
     text-decoration: none;
-    background-color: #f8f9fa; }
+    background-color: #fff; }
   .list-group-item-action:active {
     color: #212529;
     background-color: #e9ecef; }
@@ -3325,10 +3325,10 @@ tbody.collapse.show {
 .list-group-item {
   position: relative;
   display: block;
-  padding: 0.75rem 1.25rem;
+  padding: 0.2rem 1rem;
   margin-bottom: -1px;
-  background-color: #fff;
-  border: 1px solid rgba(23, 43, 77, 0.125); }
+  background-color: transparent;
+  border: 1px solid transparent; }
   .list-group-item:first-child {
     border-top-left-radius: 0.1875rem;
     border-top-right-radius: 0.1875rem; }
@@ -3338,15 +3338,17 @@ tbody.collapse.show {
     border-bottom-left-radius: 0.1875rem; }
   .list-group-item:focus, .list-group-item:hover {
     z-index: 1;
-    text-decoration: none; }
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #e9ebee; }
   .list-group-item.disabled, .list-group-item:disabled {
     color: #868e96;
-    background-color: #fff; }
+    background-color: transparent; }
   .list-group-item.active {
     z-index: 2;
     color: #fff;
     background-color: #4267b2;
-    border-color: #4267b2; }
+    border-color: #e9ebee; }
 
 .list-group-flush .list-group-item {
   border-right: 0;
@@ -4276,6 +4278,9 @@ button.bg-bluelight:hover {
   .d-lg-inline-flex {
     display: inline-flex !important; } }
 
+.d-inline {
+  display: inline !important; }
+
 .d-print-block {
   display: none !important; }
   @media print {
@@ -4646,6 +4651,14 @@ button.bg-bluelight:hover {
 
 .position-sticky {
   position: sticky !important; }
+
+@media (min-width: 768px) {
+  .fixed-md-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030; } }
 
 .fixed-top {
   position: fixed;
@@ -6428,3 +6441,22 @@ a.text-bluelight:focus, a.text-bluelight:hover {
 
 .public-DraftStyleDefault-depth4.public-DraftStyleDefault-reset {
   counter-reset: ol4; }
+
+.section-box {
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 1px 0px rgba(23, 43, 77, 0.1);
+  border-radius: 3px; }
+  .section-box.no-border-top {
+    border-top: 0; }
+
+.loader {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px; }
+  .loader .loading {
+    position: relative; }
+  .loader svg path,
+  .loader rect {
+    fill: #4267b2; }

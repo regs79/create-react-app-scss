@@ -1,0 +1,39 @@
+@import "~styles/functions";
+@import "~styles/variables";
+@import "~styles/mixins";
+
+.commentItem {
+  position: relative;
+  border-bottom: 1px solid rgba($bluelight, 0.73);
+
+  .photo {
+    img {
+      max-width: 40px !important;
+    }
+  }
+
+  .user {
+
+  }
+
+  .more {
+    @include media-breakpoint-down(md) {
+      background: $gray-200;
+    }
+    padding: 0 6px;
+    cursor: pointer;
+    border-radius: 100%;
+  }
+
+  .listitem {
+    margin-right: 0 !important;
+
+    &:not(:last-child) {
+      &:after {
+        content: '•';
+        padding: 0px 5px;
+        color: $gray-400;
+      }
+    }
+  }
+}

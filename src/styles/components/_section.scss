@@ -1,0 +1,9 @@
+.section-box {
+  border: 1px solid $gray-50;
+  box-shadow: 0px 1px 0px rgba($black, 0.1);
+  border-radius: 3px;
+
+  &.no-border-top {
+    border-top: 0;
+  }
+}

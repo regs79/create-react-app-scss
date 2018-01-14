@@ -1,9 +1,10 @@
 /* eslint-disable */
-// import faker from 'faker'
+import faker from 'faker'
 import React from 'react'
 // import PropTypes from 'prop-types'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 // import Icon from 'components/Icon'
+import cn from 'classnames'
 import CardStory from 'components/CardStory'
 import StoryBox from 'components/StoryBox'
 import StoryTitle from 'components/StoryTitle'
@@ -14,8 +15,16 @@ import EditorWrapper from 'components/EditorWrapper'
 import Modal from 'components/Modal'
 import ModalWrapper from 'components/ModalWrapper'
 import Portal from 'components/Portal'
-// import Section from 'components/Section'
-// import times from 'lodash/times'
+import FeatureImage from 'components/FeatureImage'
+import CommentItem from 'components/CommentItem'
+import LikeBox from 'components/LikeBox'
+import UserBox from 'components/UserBox'
+import times from 'lodash/times'
+
+// modules
+import CommentBox from 'modules/CommentBox'
+
+import styles from './Story.scss'
 
 class Story extends React.Component {
   constructor(props) {
@@ -57,57 +66,72 @@ class Story extends React.Component {
     } = this.state
 
     return (
-      <div className="pt-9">
-        <div className="container">
-          {/* <nav aria-label="breadcrumb">
-            <ol className="breadcrumb pl-0 m-0">
-              <li className="breadcrumb-item"><Link to="/" className="text-muted">Home</Link></li>
-              <li className="breadcrumb-item"><Link to="/" className="text-muted">Travel</Link></li>
-            </ol>
-          </nav> */}
-          <MediaQuery down="md">
-            <Paging
-              isBottomFixed={true}
-            />
-          </MediaQuery>
-          <MediaQuery up="lg">
-            <Paging />
-          </MediaQuery>
-          <div className="row min-height-vh-75">
-            <div className="col-12 no-padding-sm">
-              <div className="d-flex no-padding-md">
+      <div>
+        <div className={styles.storyview}>
+          <div className="container">
+            <MediaQuery up="lg" component="nav">
+              <ol className="breadcrumb pl-0 m-0">
+                <li className="breadcrumb-item"><Link to="/" className="text-muted">Home</Link></li>
+                <li className="breadcrumb-item"><Link to="/" className="text-muted">Travel</Link></li>
+              </ol>
+            </MediaQuery>
+            <div className="row">
+              <div className="col-12">
+                <MediaQuery down="md">
+                  <Paging
+                    isBottomFixed={true}
+                  />
+                </MediaQuery>
+                <MediaQuery up="lg">
+                  <Paging />
+                </MediaQuery>
+              </div>
+              <div className="col-12 mt-3">
                 <StoryTitle
+                  className="bg-white py-3 px-md-4 p-3"
                   title="'บาหลีเป็นเกาะชิคๆ' เที่ยวบาหลีแบบครบ จบใน4วัน"
                 />
+                {
+                  times(5, (key) => (
+                    <div className="mb-3">
+                      <div className={cn('col section-box bg-white mb-md-3 px-md-4 mb-2', {
+                        'no-border-top': key === 0,
+                        'py-0': key === 0,
+                        'py-3': key > 0,
+                      })}>
+                        <div>
+                          <UserBox
+                          />
+                        </div>
+                        <div className="py-3">
+                          {faker.lorem.sentences()}
+                        </div>
+                      </div>
+                      {
+                        times(3, () => (
+                          <div className="col-11 offset-1 section-box bg-white mb-md-3 pt-3 px-md-4 mb-2">
+                            <div>
+                              <UserBox
+                                photo={faker.image.avatar()}
+                                username={faker.internet.userName()}
+                              />
+                            </div>
+                            <div className="py-3">
+                              {faker.lorem.sentence()}
+                            </div>
+                          </div>
+                        ))
+                      }
+                      <div className="col-11 offset-1 section-box bg-white p-0">
+                        <CommentBox />
+                      </div>
+                    </div>
+                  ))
+                }
               </div>
-              <StoryBox>
-                <CardStory />
-              </StoryBox>
-              <StoryBox>
-                <CardStory />
-              </StoryBox>
-              <StoryBox>
-                <CardStory />
-              </StoryBox>
             </div>
           </div>
         </div>
-        <MediaQuery down="md">
-          <FloatingButton
-            id="editor"
-            handleFloatingOnClick={this.handleModal} // eslint-disable-line
-          />
-          <Modal isOpen={modal.editor}>
-            <ModalWrapper
-              title="เพิ่มเนื้อหาใหม่"
-              handleOnClose={this.handleModal.bind(this, 'editor')} // eslint-disable-line
-            >
-              <EditorWrapper
-                handleOnClose={this.handleModal.bind(this, 'editor')} // eslint-disable-line
-              />
-            </ModalWrapper>
-          </Modal>
-        </MediaQuery>
       </div>
     )
   }

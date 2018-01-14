@@ -1,15 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+// import cn from 'classnames'
 
-import cn from 'classnames'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 
 class App extends React.Component {
-  componentWillMount() {
-    console.log(this.props)
-  }
-
   render() {
     const { location, children } = this.props
     const isHome = () => {
@@ -19,21 +15,23 @@ class App extends React.Component {
       return true
     }
 
-    const background = cn({
-      'bg-bluelight': location.pathname.indexOf('stories') !== -1,
-    })
+    // const background = cn({
+    //   'bg-bluelight': location.pathname.indexOf('stories') !== -1,
+    // })
 
     return (
-      <div className={cn(background)}>
+      <div className="bg-bluelight">
         <Header
           isHome={isHome()}
         />
-        {React.Children.map(children, (child) => {
-          if (React.isValidElement(child)) {
-            return React.cloneElement(child)
-          }
-          return null
-        })}
+        <div className="mt-md-7">
+          {React.Children.map(children, (child) => {
+            if (React.isValidElement(child)) {
+              return React.cloneElement(child)
+            }
+            return null
+          })}
+        </div>
         <Footer
           isHome={isHome()}
         />

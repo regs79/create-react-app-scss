@@ -1,0 +1,126 @@
+@import "~styles/functions";
+@import "~styles/variables";
+@import "~styles/mixins";
+
+.features {
+  padding: 1rem 1rem;
+  margin-bottom: 0;
+
+  @include media-breakpoint-up(lg) {
+    margin-top: 46px;
+  }
+
+  &.cover {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &:before {
+      content: "";
+      top: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      // background-color: rgba($black, .2);
+      background: linear-gradient(to top, rgba($black, .6), transparent);
+    }
+
+    .content {
+      @include media-breakpoint-up(lg) {
+        height: 400px;
+      }
+
+      position: relative;
+      height: 300px;
+
+      .leadContent {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        color: #000;
+
+        .lead {
+          @include media-breakpoint-up(lg) {
+            font-size: $font-size-lg * 1.5;
+            padding: 1rem;
+          }
+
+          display: inline-block;
+          background: $primary;
+          color: $white;
+          text-align: center;
+          padding: 2px;
+          line-height: 26px;
+          margin: 0px;
+          font-size: $font-size-lg;
+          letter-spacing: 0.8px;
+        }
+      }
+    }
+  }
+
+}
+//
+// .figure {
+//   @include media-breakpoint-down(sm) {
+//     display: flex;
+//     flex-wrap: wrap;
+//     margin-bottom: 0;
+//
+//     > img {
+//       margin: 0;
+//     }
+//     figcaption {
+//       font-size: 100%;
+//     }
+//   }
+//
+//   @include media-breakpoint-up(md) {
+//     display: none !important;
+//   }
+//
+//   &.full {
+//     margin-right: ($grid-gutter-width - 38);
+//     margin-left: ($grid-gutter-width - 38);
+//   }
+// }
+//
+// .new {
+//   .bgimg-1, .bgimg-2, .bgimg-3 {
+//     position: relative;
+//     opacity: 0.65;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//
+//   }
+//
+//   .caption {
+//     position: absolute;
+//     left: 0;
+//     top: 50%;
+//     width: 100%;
+//     text-align: center;
+//     color: #000;
+//   }
+//
+//   .caption span.border {
+//     background-color: #111;
+//     color: #fff;
+//     padding: 18px;
+//     font-size: 25px;
+//     letter-spacing: 10px;
+//   }
+//
+//   h3 {
+//     letter-spacing: 5px;
+//     text-transform: uppercase;
+//     font: 20px "Lato", sans-serif;
+//     color: #111;
+//   }
+//
+// }

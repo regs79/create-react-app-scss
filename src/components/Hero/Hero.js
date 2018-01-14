@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 export const Hero = () => {
   return (
     <div>
-      <div className={cn('jumbotron jumbotron-fluid text-light mb-0 mt-4', styles.hero)}>
+      <div className={cn('jumbotron jumbotron-fluid text-light mb-0 mt-md-4', styles.hero)}>
         <div className="container">
           <h1 className="display-5">
             Connect. Share. Learn.
